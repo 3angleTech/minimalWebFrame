@@ -1,0 +1,47 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="app-page-section app-form--simple">
+  <h1>{{  'ACCOUNT_FEATURE.LOGIN_PAGE.PAGE_TITLE' | translate }}</h1>
+
+  <app-form-alerts [alerts]="loginFormAlerts"></app-form-alerts>
+
+  <label class="app-form__element--block">
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.GENERAL.USERNAME' | translate }}
+    </span>
+    <span class="app-form__element-input">
+      <input class="app-form__text-input" formControlName="username" name="username" type="text">
+      <app-form-control-errors formControlPath="username" namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.USERNAME"></app-form-control-errors>
+    </span>
+  </label>
+
+  <label class="app-form__element--block">
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.GENERAL.PASSWORD' | translate }}
+    </span>
+    <span class="app-form__element-input">
+      <input class="app-form__text-input" formControlName="password" name="password" type="password">
+      <app-form-control-errors formControlPath="password" namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.PASSWORD"></app-form-control-errors>
+    </span>
+  </label>
+
+  <div class="app-page-section-actions">
+    <button [disabled]="loginForm.disabled || loginForm.invalid" class="app-button--with-icon" name="submit" type="submit">
+      <i class="material-icons">lock_open</i>
+      <span class="text">{{ 'ACCOUNT_FEATURE.LOGIN_PAGE.SUBMIT' | translate }}</span>
+    </button>
+  </div>
+</form>
+
+<aside class="app-page-section">
+  <div class="app-page-section-actions">
+    <button class="app-button--with-icon" routerLink="/account/signup" type="button">
+      <i class="material-icons">person</i>
+      <span class="text">
+        {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.CREATE_ACCOUNT' | translate }}
+      </span>
+    </button>
+
+    <a routerLink="/account/forgot-password">
+      {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.FORGOT_PASSWORD' | translate }}
+    </a>
+  </div>
+</aside>

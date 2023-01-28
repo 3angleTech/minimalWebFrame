@@ -1,0 +1,43 @@
+$app-text-colors: (
+  lighter: #818181,
+  normal: #555555,
+  darker: #2b2b2b,
+  contrast: (
+    lighter: #f8f9fa,
+    normal: #f8f9fa,
+    darker: #f8f9fa,
+  )
+);
+
+$app-foreground-colors: (
+  dividers: rgba(#000000, 0.12)
+);
+
+$app-status-colors: (
+  danger: #dc3545,
+  warning: #d79a06,
+  success: #28a745,
+  info: #17a2b8,
+  contrast: (
+    danger: #f8f9fa,
+    warning: #f8f9fa,
+    success: #f8f9fa,
+    info: #f8f9fa,
+  ),
+);
+
+// For a given hue in a palette, return it's color value.
+@function app-get-color($palette, $hue, $opacity: null) {
+  $color: map-get($palette, $hue);
+  $opacity: if($opacity == null, opacity($color), $opacity);
+
+  @return rgba($color, $opacity);
+}
+
+// For a given hue in a palette, return the contrast color from the map of contrast palettes.
+@function app-get-contrast($palette, $hue, $opacity: null) {
+  $color: map-get(map-get($palette, contrast), $hue);
+  $opacity: if($opacity == null, opacity($color), $opacity);
+
+  @return rgba($color, $opacity);
+}

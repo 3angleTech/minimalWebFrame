@@ -1,0 +1,33 @@
+{
+  "GENERAL": {
+    "LOADING_PAGE": "Loading page…"
+  },
+  "ACCOUNT_FEATURE": {
+    "LOGIN_PAGE": {
+      "PAGE_TITLE": "Login",
+      "SUBMIT": "Login",
+      "CREATE_ACCOUNT": "Create account",
+      "FORGOT_PASSWORD": "Forgot password?",
+      "ERROR": {
+        "USERNAME": {
+          "required": "Email is required."
+        },
+        "PASSWORD": {
+          "required": "Password is required."
+        }
+      }
+    },
+    "GENERAL": {
+      "PASSWORD": "Password",
+      "USERNAME": "Username"
+    }
+  },
+  "GENERAL": {
+    "ERROR": {
+      "UNKNOWN_NETWORK_ERROR": "Unknown network error. Try again later.",
+      "CONNECTION_REFUSED": "Server connection failed. Try again later.",
+      "UNAUTHORIZED": "Invalid credentials.",
+      "INTERNAL_SERVER_ERROR": "Something went wrong. Try again later."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "@3angletech/eslint-config/style"
+  ],
+  "rules": {
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": [
+          "router-outlet",
+          "/^app-/"
+        ]
+      }
+    ],
+    "function-no-unknown": null,
+    "import-notation": null
+  }
+}
