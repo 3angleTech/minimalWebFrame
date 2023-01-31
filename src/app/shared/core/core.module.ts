@@ -2,7 +2,7 @@
  * Provides the core shared module.
  */
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,10 +11,15 @@ import { FormAlertsComponent } from './components/form-messages/form-alerts.comp
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { IAccountService } from './services/account.interface';
 import { AccountService } from './services/account.service';
-import { IContextStateService } from './services/context-state.interface';
-import { ContextStateService } from './services/context-state.service';
+import { AuthInterceptor } from './services/auth-interceptor.service';
+import { IAuthService } from './services/auth.interface';
+import { AuthService } from './services/auth.service';
+import { IContextService } from './services/context.interface';
+import { ContextService } from './services/context.service';
 import { IJsonConverterService } from './services/json-converter.interface';
 import { JsonConverterService } from './services/json-converter.service';
+import { INavigationService } from './services/navigation.interface';
+import { NavigationService } from './services/navigation.service';
 import { INotificationService } from './services/notification.interface';
 import { NotificationService } from './services/notification.service';
 import { ITranslateService } from './services/translate.interface';
@@ -26,8 +31,8 @@ import { WebRequestService } from './services/web-request.service';
 
 const SERVICES: Provider[] = [
   {
-    provide: IContextStateService,
-    useClass: ContextStateService,
+    provide: IContextService,
+    useClass: ContextService,
   },
   {
     provide: ITranslateService,
@@ -52,6 +57,14 @@ const SERVICES: Provider[] = [
   {
     provide: IAccountService,
     useClass: AccountService,
+  },
+  {
+    provide: INavigationService,
+    useClass: NavigationService,
+  },
+  {
+    provide: IAuthService,
+    useClass: AuthService,
   },
 ];
 
@@ -86,6 +99,11 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         SERVICES,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true,
+        },
       ],
     };
   }

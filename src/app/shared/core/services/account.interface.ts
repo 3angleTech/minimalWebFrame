@@ -1,13 +1,9 @@
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-
-export interface IAccountCredentials {
-  username: string;
-  password: string;
-}
+import { User } from '../data/user.do';
 
 export interface IAccountService {
-  login(credentials: IAccountCredentials): Observable<undefined>;
+  getCurrentUser(): Observable<User>;
 }
 
 export const IAccountService = new InjectionToken('IAccountService');

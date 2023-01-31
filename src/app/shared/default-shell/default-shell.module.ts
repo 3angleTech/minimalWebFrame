@@ -6,7 +6,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from '~shared/core';
 
-import { MinimalShellComponent } from './components/minimal-shell/minimal-shell.component';
+import { DefaultShellComponent } from './components/default-shell/default-shell.component';
+import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
+
+const COMPONENTS = [
+  NavigationMenuComponent,
+  DefaultShellComponent,
+];
 
 @NgModule({
   imports: [
@@ -14,7 +20,7 @@ import { MinimalShellComponent } from './components/minimal-shell/minimal-shell.
     CoreModule,
   ],
   declarations: [
-    MinimalShellComponent,
+    COMPONENTS,
   ],
 })
-export class MinimalShellModule { }
+export class DefaultShellModule { }

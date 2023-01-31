@@ -7,7 +7,7 @@ import { IJsonConverterService } from './json-converter.interface';
 export class JsonConverterService implements IJsonConverterService {
 
   public deserialize<T>(json: unknown, classReference: new () => object): T {
-    return plainToInstance(classReference, json, { excludeExtraneousValues: true }) as unknown as T;
+    return plainToInstance(classReference, json) as unknown as T;
   }
 
   public serialize<T>(object: T): unknown {

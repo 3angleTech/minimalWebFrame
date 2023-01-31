@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { AnonymousGuard } from './guards/anonymous.guard';
+import { AuthenticatedGuard } from './guards/authenticated.guard';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ export class SecurityModule {
       ngModule: SecurityModule,
       providers: [
         AnonymousGuard,
+        AuthenticatedGuard,
       ],
     };
   }

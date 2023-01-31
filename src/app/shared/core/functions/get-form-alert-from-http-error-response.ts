@@ -25,7 +25,7 @@ const errorCodeAlerts: Record<number, FormAlert> = {
   },
 };
 
-export function getFormAlertFromResponse(response: HttpErrorResponse): FormAlert {
+export function getFormAlertFromHttpErrorResponse(response: HttpErrorResponse): FormAlert {
   if (hasApiErrorProperties(response)) {
     return errorCodeAlerts[response.status];
   }

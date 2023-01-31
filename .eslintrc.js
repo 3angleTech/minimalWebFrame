@@ -25,7 +25,10 @@ module.exports = {
           "^~[^/]+/[^/]+$",
           "@angular/common/http",
           "@angular/core/testing",
-        ]}],
+        ]
+      }
+    ],
     "capitalized-comments": "off",
+    "max-params": "off",
   },
 };

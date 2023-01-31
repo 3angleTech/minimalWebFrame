@@ -29,5 +29,13 @@
       "UNAUTHORIZED": "Invalid credentials.",
       "INTERNAL_SERVER_ERROR": "Something went wrong. Try again later."
     }
+  },
+  "DEFAULT_SHELL": {
+    "NAVIGATION_MENU": {
+      "LOGIN": "Login",
+      "LOGOUT": "Logout",
+      "ACCOUNT": "Account",
+      "PROFILE": "Profile"
+    }
   }
 }

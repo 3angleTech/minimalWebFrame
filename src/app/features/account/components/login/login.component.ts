@@ -1,12 +1,15 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+
 import {
   FormAlert,
-  getFormAlertFromResponse,
+  getFormAlertFromHttpErrorResponse,
   IAccountCredentials,
-  IAccountService,
+  IAuthService,
+  INavigationService,
   INotificationService,
+  PageUrl,
 } from '~shared/core';
 
 interface LoginForm {
@@ -27,7 +30,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private readonly formBuilder: NonNullableFormBuilder,
     private readonly notificationService: INotificationService,
-    private readonly accountService: IAccountService,
+    private readonly authService: IAuthService,
+    private readonly navigationService: INavigationService,
   ) {}
 
   public ngOnInit(): void {
@@ -44,20 +48,20 @@ export class LoginComponent implements OnInit {
 
     this.loginForm.disable();
     const credentials: IAccountCredentials = this.loginForm.getRawValue();
-    this.accountService.login(credentials).subscribe({
+    this.authService.login(credentials).subscribe({
       error: (err: unknown): void => this.onLoginError(err),
       complete: (): void => this.onLoginComplete(),
     });
   }
 
   private onLoginComplete(): void {
-    alert('navigate to home screen');
+    this.navigationService.navigateToUrl(PageUrl.PROFILE_PAGE);
   }
 
   private onLoginError(err: unknown): void {
     this.loginForm.enable();
     if (err instanceof HttpErrorResponse) {
-      this.loginFormAlerts = [getFormAlertFromResponse(err)];
+      this.loginFormAlerts = [getFormAlertFromHttpErrorResponse(err)];
       this.loginForm.markAsUntouched();
     } else {
       throw err;

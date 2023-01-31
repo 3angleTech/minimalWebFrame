@@ -13,7 +13,7 @@ export class WebRequestService implements IWebRequestService {
   ) { }
 
   public get<T>(config: RequestConfig): Observable<T> {
-    return this.http.post<T>(this.getUrl(config), {
+    return this.http.get<T>(this.getUrl(config), {
       headers: this.getHeaders(config),
     });
   }

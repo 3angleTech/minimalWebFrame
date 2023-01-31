@@ -79,13 +79,6 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
     );
   }
 
-  /**
-   * NOTE: This method should be kept as fast as possible.
-   *
-   * TODO: Remove once the angular issue #10887 has been fixed.
-   *
-   * @see https://github.com/angular/angular/issues/10887
-   */
   public ngDoCheck(): void {
     // Show errors when a component is first touched.
     if (this.formControl.touched && !this.formControlTouchedChanged) {
