@@ -1,0 +1,44 @@
+@import "theme";
+
+:host {
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    align-items: center;
+    border-radius: var(--border-radius-medium);
+    display: flex;
+    flex-direction: row;
+    margin-bottom: var(--spacing-medium);
+    overflow: hidden;
+    padding: var(--spacing-small);
+    text-overflow: ellipsis;
+  }
+
+  li > i {
+    padding-right: var(--spacing-small);
+  }
+
+  .app-form-alerts__alert--success {
+    background-color: app-get-contrast($app-status-colors, "success");
+    border: 1px solid app-get-color($app-status-colors, "success");
+    color: app-get-color($app-status-colors, "success");
+  }
+
+  .app-form-alerts__alert--warning {
+    background-color: app-get-contrast($app-status-colors, "warning");
+    border: 1px solid app-get-color($app-status-colors, "warning");
+    color: app-get-color($app-status-colors, "warning");
+  }
+
+  .app-form-alerts__alert--error {
+    background-color: app-get-contrast($app-status-colors, "danger");
+    border: 1px solid app-get-color($app-status-colors, "danger");
+    color: app-get-color($app-status-colors, "danger");
+  }
+}

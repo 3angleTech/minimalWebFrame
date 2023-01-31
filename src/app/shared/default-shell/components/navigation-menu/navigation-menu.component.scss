@@ -1,0 +1,20 @@
+@import "theme";
+
+.app-navigation-menu {
+  align-items: center;
+  background-color: app-get-color($app-text-colors, lighter);
+  color: app-get-contrast($app-text-colors, lighter);
+  display: flex;
+  padding: var(--spacing-small);
+
+  .spacer {
+    display: block;
+    flex-grow: 1;
+  }
+}
+
+.app-navigation-menu__item {
+  display: inline-block;
+  margin-left: var(--spacing-small);
+  margin-right: var(--spacing-small);
+}

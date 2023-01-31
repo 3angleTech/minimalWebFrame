@@ -1,0 +1,33 @@
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+
+export enum FormAlertType {
+  Success,
+  Warning,
+  Error,
+}
+
+export interface FormAlert {
+  message: string;
+  type: FormAlertType;
+}
+
+@Component({
+  selector: 'app-form-alerts',
+  styleUrls: ['./form-alerts.component.scss'],
+  templateUrl: './form-alerts.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class FormAlertsComponent {
+  @Input()
+  public alerts: FormAlert[] | undefined;
+
+  @HostBinding('attr.aria-live')
+  public readonly ariaLive: string = 'assertive';
+
+  @HostBinding('attr.role')
+  public readonly ariaRole: string = 'alert';
+
+  public get alertType(): typeof FormAlertType {
+    return FormAlertType;
+  }
+}

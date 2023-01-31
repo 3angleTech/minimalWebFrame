@@ -1,0 +1,51 @@
+@import "theme";
+
+.app-form--simple {
+  border: 1px solid app-get-color($app-foreground-colors, dividers);
+  border-radius: var(--border-radius-medium);
+  box-sizing: border-box;
+  padding: var(--spacing-large);
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.app-form__element--block {
+  display: block;
+  margin-bottom: var(--spacing-normal);
+  margin-top: var(--spacing-normal);
+
+  .app-form__element-label,
+  .app-form__element-input {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.app-form__text-input {
+  background-color: app-get-contrast($app-text-colors, darker);
+  border: 1px solid app-get-color($app-foreground-colors, dividers);
+  border-radius: var(--border-radius-small);
+  box-sizing: border-box;
+  color: app-get-color($app-text-colors, darker);
+  padding: 0.25em;
+
+  &.ng-invalid.ng-touched {
+    box-shadow: inset 0 0 2px 2px app-get-color($app-status-colors, danger, 0.2);
+  }
+
+  &.ng-invalid.ng-touched:focus {
+    box-shadow: inset 0 0 2px 1px app-get-color($app-status-colors, danger, 0.2), 0 1px 3px 1px app-get-color($app-text-colors, darker, 0.5);
+  }
+
+  &:focus {
+    border-color: app-get-color($app-text-colors, darker, 0.5);
+    box-shadow: 0 1px 3px 1px app-get-color($app-text-colors, darker, 0.5);
+    outline: none;
+  }
+}
