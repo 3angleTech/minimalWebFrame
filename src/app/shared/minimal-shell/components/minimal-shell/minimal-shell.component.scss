@@ -1,0 +1,17 @@
+app-minimal-shell {
+  display: grid;
+  min-height: 100vh;
+  place-content: start center;
+
+  app-progress-bar {
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.app-minimal-shell__logo {
+  display: block;
+  margin: var(--spacing-large);
+  max-width: 16em;
+}

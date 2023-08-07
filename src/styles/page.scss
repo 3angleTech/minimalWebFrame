@@ -1,0 +1,22 @@
+.app-page-section {
+  margin-bottom: var(--spacing-normal);
+  margin-top: var(--spacing-normal);
+}
+
+.app-page-section-actions {
+  display: grid;
+  grid-gap: var(--spacing-small);
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    line-height: 2em;
+    text-align: center;
+  }
+}

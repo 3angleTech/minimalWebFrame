@@ -1,0 +1,14 @@
+// This is the main file for global styles, please use it only for importing other files.
+// When writing styles you should follow some best practices.
+//
+// @see http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
+// @see http://getbem.com/introduction/
+
+@import "material-icons/iconfont/material-icons.css";
+
+@import "global-variables";
+@import "html-tags";
+@import "theme";
+@import "page";
+@import "form";
+@import "button";
