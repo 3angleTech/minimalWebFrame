@@ -36,7 +36,6 @@
     "class-transformer": "0.5.1",
     "lodash": "4.17.21",
     "material-icons": "1.13.1",
-    "npm": "9.3.1",
     "rxjs": "7.5.7",
     "tslib": "2.4.1",
     "zone.js": "0.11.8"
@@ -59,5 +58,9 @@
     "stylelint-config-sass-guidelines": "9.0.1",
     "stylelint-config-standard": "29.0.0",
     "typescript": "4.7.4"
+  },
+  "engines": {
+    "node": ">=18.13",
+    "npm": ">=9.5"
   }
 }
