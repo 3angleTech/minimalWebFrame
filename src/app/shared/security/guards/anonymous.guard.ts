@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+
 
 import { IContextService, INavigationService, PageUrl } from '~shared/core';
 
 @Injectable()
-export class AnonymousGuard implements CanActivate {
+export class AnonymousGuard  {
   constructor(
     private readonly contextService: IContextService,
     private readonly navigationService: INavigationService,
