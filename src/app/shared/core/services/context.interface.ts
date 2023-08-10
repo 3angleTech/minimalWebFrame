@@ -6,6 +6,7 @@ export interface IContextService {
   currentUser: BehaviorSubject<User | undefined>;
 
   isAuthenticated(): Promise<boolean>;
+  refreshUser(): Promise<void>;
 }
 
 export const IContextService = new InjectionToken('IContextService');

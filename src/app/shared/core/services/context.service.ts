@@ -12,20 +12,24 @@ import { IWebRequestService } from './web-request.interface';
  */
 @Injectable()
 export class ContextService implements IContextService {
-  public currentUser!: BehaviorSubject<User | undefined>;
+  public currentUser: BehaviorSubject<User | undefined> =
+    new BehaviorSubject<User | undefined>(undefined);
 
   constructor(
     private readonly webRequest: IWebRequestService,
     private readonly jsonConverter: IJsonConverterService,
   ) {
-    this.currentUser = new BehaviorSubject<User | undefined>(undefined);
   }
 
   public async isAuthenticated(): Promise<boolean> {
-    if (this.currentUser?.value) {
+    if (this.currentUser.value) {
       return true;
     }
+    await this.refreshUser();
+    return this.currentUser.value !== undefined;
+  }
 
+  public async refreshUser(): Promise<void> {
     const userObs = this.webRequest.get({
       serverApi: ServerApi.AccountMe,
       skipErrorHandling: true,
@@ -34,10 +38,8 @@ export class ContextService implements IContextService {
       const userObject = await lastValueFrom(userObs);
       const user: User = this.jsonConverter.deserialize(userObject, User);
       this.currentUser.next(user);
-      return true;
     } catch (err) {
       this.currentUser.next(undefined);
-      return false;
     }
   }
 }
