@@ -30,6 +30,12 @@ export interface IWebRequestService {
    */
   get<T>(config: RequestConfig): Observable<T>;
   /**
+   * PATCH resource<T>
+   *
+   * @param config The request configuration.
+   */
+  patch<T>(config: RequestConfig): Observable<T>;
+  /**
    * POST resource<T>
    *
    * @param config The request configuration.

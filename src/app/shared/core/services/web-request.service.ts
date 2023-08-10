@@ -18,6 +18,12 @@ export class WebRequestService implements IWebRequestService {
     });
   }
 
+  public patch<T>(config: RequestConfig): Observable<T> {
+    return this.http.patch<T>(this.getUrl(config), config.body, {
+      headers: this.getHeaders(config),
+    });
+  }
+
   public post<T>(config: RequestConfig): Observable<T> {
     return this.http.post<T>(this.getUrl(config), config.body, {
       headers: this.getHeaders(config),
