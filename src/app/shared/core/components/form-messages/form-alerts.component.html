@@ -1,13 +1,14 @@
 <ng-container *ngIf="alerts?.length">
   <ul>
-    <li *ngFor="let alert of alerts" [title]="alert.message | translate"
-        [class.app-form-alerts__alert--success] = "alert.type == alertType.Success"
-        [class.app-form-alerts__alert--warning] = "alert.type == alertType.Warning"
-        [class.app-form-alerts__alert--error] = "alert.type == alertType.Error">
+    <li *ngFor="let alert of alerts"
+        [class.app-form-alerts__alert--error]="alert.type == alertType.Error"
+        [class.app-form-alerts__alert--success]="alert.type == alertType.Success"
+        [class.app-form-alerts__alert--warning]="alert.type == alertType.Warning"
+        [title]="alert.message | translate : alert.messageParams">
       <i *ngIf="alert.type == alertType.Success" class="material-icons">check</i>
       <i *ngIf="alert.type == alertType.Warning" class="material-icons">warning</i>
       <i *ngIf="alert.type == alertType.Error" class="material-icons">error</i>
-      {{ alert.message | translate }}
+      <div>{{ alert.message | translate : alert.messageParams }}</div>
     </li>
   </ul>
 </ng-container>

@@ -1,37 +1,86 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { FormAlert, FormAlertType } from '../components/form-messages/form-alerts.component';
-
-function hasApiErrorProperties(value: unknown): boolean {
-  if (typeof value !== 'object' && value === null) {
-    return false;
-  }
-
-  return Object.prototype.hasOwnProperty.call(value, 'status') &&
-    typeof (value as { status: unknown }).status === 'number';
-}
 
 const errorCodeAlerts: Record<number, FormAlert> = {
   0: {
-    message: 'GENERAL.ERROR.CONNECTION_REFUSED',
+    message: 'SERVER_ERROR.GENERIC.CONNECTION_REFUSED',
+    type: FormAlertType.Error,
+  },
+  400: {
+    message: 'SERVER_ERROR.GENERIC.BAD_REQUEST',
     type: FormAlertType.Error,
   },
   401: {
-    message: 'GENERAL.ERROR.UNAUTHORIZED',
-    type: FormAlertType.Warning,
+    message: 'SERVER_ERROR.GENERIC.UNAUTHORIZED',
+    type: FormAlertType.Error,
+  },
+  403: {
+    message: 'SERVER_ERROR.GENERIC.FORBIDDEN',
+    type: FormAlertType.Error,
+  },
+  404: {
+    message: 'SERVER_ERROR.GENERIC.NOT_FOUND',
+    type: FormAlertType.Error,
   },
   500: {
-    message: 'GENERAL.ERROR.INTERNAL_SERVER_ERROR',
+    message: 'SERVER_ERROR.GENERIC.INTERNAL_SERVER_ERROR',
+    type: FormAlertType.Error,
+  },
+  501: {
+    message: 'SERVER_ERROR.GENERIC.NOT_IMPLEMENTED',
     type: FormAlertType.Error,
   },
 };
 
-export function getFormAlertFromHttpErrorResponse(response: HttpErrorResponse): FormAlert {
-  if (hasApiErrorProperties(response)) {
-    return errorCodeAlerts[response.status];
+function isHttpErrorResponse(value: unknown): value is HttpErrorResponse {
+  if (typeof value !== 'object' || value === null) {
+    return false;
   }
+  return value instanceof HttpErrorResponse &&
+    Object.prototype.hasOwnProperty.call(value, 'status') &&
+    typeof (value as { status: unknown }).status === 'number';
+}
 
-  return {
-    message: 'GENERAL.ERROR.UNKNOWN_NETWORK_ERROR',
+function isServerErrorMessage(message: unknown): message is string {
+  return typeof message === 'string' ? /^SERVER_ERROR\.[A-Za-z0-9_.]+$/.test(message) : false;
+}
+
+/**
+ * Extracts form alerts from an error response body.
+ * @see HttpErrorResponse.error
+ */
+function getServerErrors(error: unknown): FormAlert[] {
+  const serverErrors: FormAlert[] = [];
+  if (typeof error !== 'object' || error === null) {
+    return serverErrors;
+  }
+  if ('message' in error) {
+    const messages: unknown[] = Array.isArray(error['message']) ? error['message'] : [error['message']];
+    messages.forEach((message) => {
+      if (isServerErrorMessage(message)) {
+        serverErrors.push({
+          message: message,
+          type: FormAlertType.Error,
+        });
+      }
+    });
+  }
+  return serverErrors;
+}
+
+export function getFormAlertFromHttpErrorResponse(response: unknown): FormAlert[] {
+  if (isHttpErrorResponse(response)) {
+    if (response.status === HttpStatusCode.BadRequest) {
+      const serverErrors: FormAlert[] = getServerErrors(response.error);
+      if (serverErrors.length) {
+        return serverErrors;
+      }
+    }
+    return [errorCodeAlerts[response.status]];
+  }
+  const unknownConnectionError: FormAlert = {
+    message: 'SERVER_ERROR.GENERIC.UNKNOWN',
     type: FormAlertType.Error,
   };
+  return [unknownConnectionError];
 }

@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
   private onLoginError(err: unknown): void {
     this.loginForm.enable();
     if (err instanceof HttpErrorResponse) {
-      this.loginFormAlerts = [getFormAlertFromHttpErrorResponse(err)];
+      this.loginFormAlerts = getFormAlertFromHttpErrorResponse(err);
       this.loginForm.markAsUntouched();
     } else {
       throw err;

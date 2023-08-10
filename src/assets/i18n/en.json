@@ -2,6 +2,18 @@
   "GENERAL": {
     "LOADING_PAGE": "Loading page…"
   },
+  "SERVER_ERROR": {
+    "GENERIC": {
+      "UNKNOWN": "Unknown error. Try again later.",
+      "CONNECTION_REFUSED": "Server connection failed. Try again later.",
+      "UNAUTHORIZED": "Invalid credentials.",
+      "BAD_REQUEST": "Bad request.",
+      "INTERNAL_SERVER_ERROR": "Something went wrong. Try again later.",
+      "NOT_FOUND": "Something went wrong. Try again later.",
+      "FORBIDDEN": "You don't have access to this resource. Contact the administrator.",
+      "NOT_IMPLEMENTED": "This functionality is not supported right now. Try again later."
+    }
+  },
   "ACCOUNT_FEATURE": {
     "LOGIN_PAGE": {
       "PAGE_TITLE": "Login",
@@ -20,14 +32,6 @@
     "GENERAL": {
       "PASSWORD": "Password",
       "USERNAME": "Username"
-    }
-  },
-  "GENERAL": {
-    "ERROR": {
-      "UNKNOWN_NETWORK_ERROR": "Unknown network error. Try again later.",
-      "CONNECTION_REFUSED": "Server connection failed. Try again later.",
-      "UNAUTHORIZED": "Invalid credentials.",
-      "INTERNAL_SERVER_ERROR": "Something went wrong. Try again later."
     }
   },
   "DEFAULT_SHELL": {

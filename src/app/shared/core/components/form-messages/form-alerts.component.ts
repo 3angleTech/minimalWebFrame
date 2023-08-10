@@ -8,6 +8,7 @@ export enum FormAlertType {
 
 export interface FormAlert {
   message: string;
+  messageParams?: Record<string, string | number>;
   type: FormAlertType;
 }
 
