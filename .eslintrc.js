@@ -30,5 +30,7 @@ module.exports = {
     ],
     "capitalized-comments": "off",
     "max-params": "off",
+    "jsdoc/newline-after-description": "off",
+    "jsdoc/tag-lines": "off",
   },
 };

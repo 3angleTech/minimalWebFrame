@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
-
 import { IContextService, INavigationService, PageUrl } from '~shared/core';
 
 @Injectable()
-export class AnonymousGuard  {
+export class AnonymousGuard {
   constructor(
     private readonly contextService: IContextService,
     private readonly navigationService: INavigationService,
