@@ -12,6 +12,13 @@
       "NOT_FOUND": "Something went wrong. Try again later.",
       "FORBIDDEN": "You don't have access to this resource. Contact the administrator.",
       "NOT_IMPLEMENTED": "This functionality is not supported right now. Try again later."
+    },
+    "USER": {
+      "PASSWORD_MIN_LENGTH": "Password is to short.",
+      "PASSWORDS_DO_NOT_MATCH": "Passwords do not match.",
+      "PASSWORD_PATTERN": "Password should contain at least one upper case and one lower case letter, one digit and one special character!",
+      "USERNAME_ALREADY_EXISTS": "An user account with the same username already exists.",
+      "EMAIL_ALREADY_EXISTS": "An user account with the same email already exists."
     }
   },
   "ACCOUNT_FEATURE": {
@@ -29,7 +36,34 @@
         }
       }
     },
+    "FORGOT_PASSWORD": {
+      "PAGE_TITLE": "Forgot Password",
+      "SUBMIT": "Send Recovery Instructions",
+      "EMAIL_SENT_TITLE": "Check Your Mail",
+      "EMAIL_SENT_INFO": "We have sent the password recovery instructions to your email.",
+      "ERROR": {
+        "EMAIL": {
+          "required": "Email is required."
+        }
+      }
+    },
+    "RESET_PASSWORD": {
+      "TITLE": "Reset Password",
+      "SUBMIT": "Continue",
+      "SUCCESS_DESCRIPTION": "Your password has been successfully changed",
+      "ERROR": {
+        "NEW_PASSWORD": {
+          "required": "Password is required."
+        },
+        "CONFIRM_PASSWORD": {
+          "required": "Password is required."
+        }
+      }
+    },
     "GENERAL": {
+      "CONFIRM_PASSWORD": "Confirm password",
+      "EMAIL": "Email",
+      "NEW_PASSWORD": "New password",
       "PASSWORD": "Password",
       "USERNAME": "Username"
     }

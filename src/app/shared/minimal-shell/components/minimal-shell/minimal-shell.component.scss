@@ -12,6 +12,6 @@ app-minimal-shell {
 
 .app-minimal-shell__logo {
   display: block;
-  margin: var(--spacing-large);
+  margin: var(--spacing-large) auto;
   max-width: 16em;
 }

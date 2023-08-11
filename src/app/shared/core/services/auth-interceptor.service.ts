@@ -40,7 +40,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private isRequestUnauthorized(request: HttpRequest<any>, error: any): boolean {
     const isErrorResponse = error instanceof HttpErrorResponse;
     const isRequestUnauthorized = error.status === HttpStatusCode.Unauthorized;
-    const isLoginRequest = request.body?.includes('grant_type=password');
+    const isLoginRequest = typeof request.body === 'string' ? request.body?.includes('grant_type=password') : false;
 
     return isErrorResponse && isRequestUnauthorized && !isLoginRequest;
   }
