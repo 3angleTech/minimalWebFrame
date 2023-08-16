@@ -68,7 +68,7 @@ function getServerErrors(error: unknown): FormAlert[] {
   return serverErrors;
 }
 
-export function getFormAlertFromHttpErrorResponse(response: unknown): FormAlert[] {
+export function getFormAlertsFromHttpErrorResponse(response: unknown): FormAlert[] {
   if (isHttpErrorResponse(response)) {
     if (response.status === HttpStatusCode.BadRequest) {
       const serverErrors: FormAlert[] = getServerErrors(response.error);

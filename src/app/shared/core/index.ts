@@ -24,4 +24,4 @@ export * from './services/navigation.service';
 export * from './services/navigation.interface';
 export * from './services/auth.service';
 export * from './services/auth.interface';
-export * from './functions/get-form-alert-from-http-error-response';
+export * from './functions/get-form-alerts-from-http-error-response';

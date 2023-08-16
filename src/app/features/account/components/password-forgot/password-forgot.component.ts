@@ -3,7 +3,7 @@ import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@ang
 
 import {
   FormAlert,
-  getFormAlertFromHttpErrorResponse,
+  getFormAlertsFromHttpErrorResponse,
   IAuthService,
   INavigationService,
   INotificationService,
@@ -61,7 +61,7 @@ export class PasswordForgotComponent implements OnInit {
 
   private onLoginError(err: unknown): void {
     this.forgotPasswordForm.enable();
-    this.forgotPasswordFormAlerts = getFormAlertFromHttpErrorResponse(err);
+    this.forgotPasswordFormAlerts = getFormAlertsFromHttpErrorResponse(err);
     this.forgotPasswordForm.markAsUntouched();
   }
 }
