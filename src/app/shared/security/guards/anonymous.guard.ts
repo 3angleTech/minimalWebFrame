@@ -10,8 +10,8 @@ export class AnonymousGuard {
   ) {}
 
   public async canActivate(): Promise<boolean> {
-    const isAuthenticated = await this.contextService.isAuthenticated();
-    if (isAuthenticated) {
+    await this.contextService.refreshUser();
+    if (this.contextService.isAuthenticated()) {
       this.navigationService.navigateToUrl(PageUrl.HOME_PAGE);
       return false;
     }

@@ -21,11 +21,10 @@ export class ContextService implements IContextService {
   ) {
   }
 
-  public async isAuthenticated(): Promise<boolean> {
+  public isAuthenticated(): boolean {
     if (this.currentUser.value) {
       return true;
     }
-    await this.refreshUser();
     return this.currentUser.value !== undefined;
   }
 

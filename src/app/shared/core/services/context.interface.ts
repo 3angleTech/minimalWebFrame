@@ -5,7 +5,7 @@ import { User } from '../data/user.do';
 export interface IContextService {
   currentUser: BehaviorSubject<User | undefined>;
 
-  isAuthenticated(): Promise<boolean>;
+  isAuthenticated(): boolean;
   refreshUser(): Promise<void>;
 }
 
