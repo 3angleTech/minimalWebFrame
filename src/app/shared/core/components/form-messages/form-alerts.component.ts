@@ -8,6 +8,7 @@ export enum FormAlertType {
 
 export interface FormAlert {
   message: string;
+  messageParams?: Record<string, string | number>;
   type: FormAlertType;
 }
 
@@ -29,5 +30,9 @@ export class FormAlertsComponent {
 
   public get alertType(): typeof FormAlertType {
     return FormAlertType;
+  }
+
+  public deleteAlert(index: number): void {
+    this.alerts?.splice(index, 1);
   }
 }

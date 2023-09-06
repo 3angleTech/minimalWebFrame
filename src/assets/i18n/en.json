@@ -2,6 +2,25 @@
   "GENERAL": {
     "LOADING_PAGE": "Loading page…"
   },
+  "SERVER_ERROR": {
+    "GENERIC": {
+      "UNKNOWN": "Unknown error. Try again later.",
+      "CONNECTION_REFUSED": "Server connection failed. Try again later.",
+      "UNAUTHORIZED": "Invalid credentials.",
+      "BAD_REQUEST": "Bad request.",
+      "INTERNAL_SERVER_ERROR": "Something went wrong. Try again later.",
+      "NOT_FOUND": "Something went wrong. Try again later.",
+      "FORBIDDEN": "You don't have access to this resource. Contact the administrator.",
+      "NOT_IMPLEMENTED": "This functionality is not supported right now. Try again later."
+    },
+    "USER": {
+      "PASSWORD_MIN_LENGTH": "Password is to short.",
+      "PASSWORDS_DO_NOT_MATCH": "Passwords do not match.",
+      "PASSWORD_PATTERN": "Password should contain at least one upper case and one lower case letter, one digit and one special character!",
+      "USERNAME_ALREADY_EXISTS": "An user account with the same username already exists.",
+      "EMAIL_ALREADY_EXISTS": "An user account with the same email already exists."
+    }
+  },
   "ACCOUNT_FEATURE": {
     "LOGIN_PAGE": {
       "PAGE_TITLE": "Login",
@@ -17,17 +36,36 @@
         }
       }
     },
+    "FORGOT_PASSWORD": {
+      "PAGE_TITLE": "Forgot Password",
+      "SUBMIT": "Send Recovery Instructions",
+      "EMAIL_SENT_TITLE": "Check Your Mail",
+      "EMAIL_SENT_INFO": "We have sent the password recovery instructions to your email.",
+      "ERROR": {
+        "EMAIL": {
+          "required": "Email is required."
+        }
+      }
+    },
+    "RESET_PASSWORD": {
+      "TITLE": "Reset Password",
+      "SUBMIT": "Continue",
+      "SUCCESS_DESCRIPTION": "Your password has been successfully changed",
+      "ERROR": {
+        "NEW_PASSWORD": {
+          "required": "Password is required."
+        },
+        "CONFIRM_PASSWORD": {
+          "required": "Password is required."
+        }
+      }
+    },
     "GENERAL": {
+      "CONFIRM_PASSWORD": "Confirm password",
+      "EMAIL": "Email",
+      "NEW_PASSWORD": "New password",
       "PASSWORD": "Password",
       "USERNAME": "Username"
-    }
-  },
-  "GENERAL": {
-    "ERROR": {
-      "UNKNOWN_NETWORK_ERROR": "Unknown network error. Try again later.",
-      "CONNECTION_REFUSED": "Server connection failed. Try again later.",
-      "UNAUTHORIZED": "Invalid credentials.",
-      "INTERNAL_SERVER_ERROR": "Something went wrong. Try again later."
     }
   },
   "DEFAULT_SHELL": {

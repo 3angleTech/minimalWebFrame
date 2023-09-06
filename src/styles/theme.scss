@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $app-text-colors: (
   lighter: #818181,
   normal: #555555,
@@ -28,7 +30,7 @@ $app-status-colors: (
 
 // For a given hue in a palette, return it's color value.
 @function app-get-color($palette, $hue, $opacity: null) {
-  $color: map-get($palette, $hue);
+  $color: map.get($palette, $hue);
   $opacity: if($opacity == null, opacity($color), $opacity);
 
   @return rgba($color, $opacity);
@@ -36,7 +38,7 @@ $app-status-colors: (
 
 // For a given hue in a palette, return the contrast color from the map of contrast palettes.
 @function app-get-contrast($palette, $hue, $opacity: null) {
-  $color: map-get(map-get($palette, contrast), $hue);
+  $color: map.get(map.get($palette, contrast), $hue);
   $opacity: if($opacity == null, opacity($color), $opacity);
 
   @return rgba($color, $opacity);

@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
 
 import { IContextService, INavigationService, PageUrl } from '~shared/core';
 
 @Injectable()
-export class AnonymousGuard implements CanActivate {
+export class AnonymousGuard {
   constructor(
     private readonly contextService: IContextService,
     private readonly navigationService: INavigationService,
   ) {}
 
   public async canActivate(): Promise<boolean> {
-    const isAuthenticated = await this.contextService.isAuthenticated();
-    if (isAuthenticated) {
+    await this.contextService.refreshUser();
+    if (this.contextService.isAuthenticated()) {
       this.navigationService.navigateToUrl(PageUrl.HOME_PAGE);
       return false;
     }

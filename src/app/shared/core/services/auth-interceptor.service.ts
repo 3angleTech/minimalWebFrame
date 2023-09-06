@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -9,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, finalize, Observable, switchMap, throwError } from 'rxjs';
+import { ServerApi } from '~shared/core';
 
 import { IAuthService } from './auth.interface';
 
@@ -20,8 +20,8 @@ export class AuthInterceptor implements HttpInterceptor {
     private readonly authService: IAuthService,
   ) { }
 
-  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const updatedRequest = request.clone({
+  public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const updatedRequest: HttpRequest<unknown> = request.clone({
       withCredentials: true,
       headers: request.headers,
     });
@@ -37,15 +37,21 @@ export class AuthInterceptor implements HttpInterceptor {
     );
   }
 
-  private isRequestUnauthorized(request: HttpRequest<any>, error: any): boolean {
-    const isErrorResponse = error instanceof HttpErrorResponse;
-    const isRequestUnauthorized = error.status === HttpStatusCode.Unauthorized;
-    const isLoginRequest = request.body?.includes('grant_type=password');
-
-    return isErrorResponse && isRequestUnauthorized && !isLoginRequest;
+  private isRequestUnauthorized(request: HttpRequest<unknown>, error: unknown): boolean {
+    if (error instanceof HttpErrorResponse) {
+      const isUnauthorized: boolean = error.status === HttpStatusCode.Unauthorized;
+      if (isUnauthorized && request.url.endsWith(ServerApi.AuthToken)) {
+        const authRequestBody: string = `${request.serializeBody()}`;
+        if (authRequestBody.includes('grant_type=password') || authRequestBody.includes('grant_type=refresh_token')) {
+          return false;
+        }
+      }
+      return isUnauthorized;
+    }
+    return false;
   }
 
-  private tryToRefreshToken(request: HttpRequest<any>, next: HttpHandler) {
+  private tryToRefreshToken(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (!this.isTokenRefreshing) {
       this.isTokenRefreshing = true;
 

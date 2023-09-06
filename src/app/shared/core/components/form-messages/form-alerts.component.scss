@@ -24,6 +24,14 @@
     padding-right: var(--spacing-small);
   }
 
+  li > div {
+    flex-grow: 1;
+  }
+
+  li > button {
+    margin-left: 1em;
+  }
+
   .app-form-alerts__alert--success {
     background-color: app-get-contrast($app-status-colors, "success");
     border: 1px solid app-get-color($app-status-colors, "success");
