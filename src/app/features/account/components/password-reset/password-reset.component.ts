@@ -60,11 +60,7 @@ export class PasswordResetComponent implements OnInit {
     this.resetPasswordFormAlerts = [
       { message: 'ACCOUNT_FEATURE.RESET_PASSWORD.SUCCESS_DESCRIPTION', type: FormAlertType.Success },
     ];
-    // Redirect to login page after timeout.
-    const timeout: number = 2000;
-    setTimeout(() => {
-      this.navigationService.navigateToUrl(PageUrl.LOGIN_PAGE);
-    }, timeout);
+    this.navigationService.navigateToUrl(PageUrl.LOGIN_PAGE);
   }
 
   private onResetError(err: Error): void {

@@ -1,6 +1,6 @@
 <ng-container *ngIf="alerts?.length">
   <ul>
-    <li *ngFor="let alert of alerts"
+    <li *ngFor="let alert of alerts; let i=index"
         [class.app-form-alerts__alert--error]="alert.type == alertType.Error"
         [class.app-form-alerts__alert--success]="alert.type == alertType.Success"
         [class.app-form-alerts__alert--warning]="alert.type == alertType.Warning"
@@ -9,6 +9,7 @@
       <i *ngIf="alert.type == alertType.Warning" class="material-icons">warning</i>
       <i *ngIf="alert.type == alertType.Error" class="material-icons">error</i>
       <div>{{ alert.message | translate : alert.messageParams }}</div>
+      <button (click)="deleteAlert(i)" [attr.aria-label]="'GENERAL.BUTTONS.CLOSE' | translate" type="button">x</button>
     </li>
   </ul>
 </ng-container>

@@ -31,4 +31,8 @@ export class FormAlertsComponent {
   public get alertType(): typeof FormAlertType {
     return FormAlertType;
   }
+
+  public deleteAlert(index: number): void {
+    this.alerts?.splice(index, 1);
+  }
 }
