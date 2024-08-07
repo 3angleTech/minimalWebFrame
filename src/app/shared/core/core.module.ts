@@ -80,13 +80,19 @@ const COMPONENTS = [
   FormAlertsComponent,
 ];
 
-@NgModule({ exports: [
-        MODULES,
-        COMPONENTS,
-    ],
-    declarations: [
-        COMPONENTS,
-    ], imports: [MODULES], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  exports: [
+    MODULES,
+    COMPONENTS,
+  ],
+  declarations: [
+    COMPONENTS,
+  ],
+  imports: [MODULES],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
+})
 export class CoreModule {
   public static forRoot(): ModuleWithProviders<CoreModule> {
     return {
