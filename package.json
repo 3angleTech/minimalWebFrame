@@ -23,14 +23,14 @@
     "lint:style": "stylelint 'src/**/*.*css'"
   },
   "dependencies": {
-    "@angular/animations": "16.2.0",
-    "@angular/common": "16.2.0",
-    "@angular/compiler": "16.2.0",
-    "@angular/core": "16.2.0",
-    "@angular/forms": "16.2.0",
-    "@angular/platform-browser": "16.2.0",
-    "@angular/platform-browser-dynamic": "16.2.0",
-    "@angular/router": "16.2.0",
+    "@angular/animations": "17.3.12",
+    "@angular/common": "17.3.12",
+    "@angular/compiler": "17.3.12",
+    "@angular/core": "17.3.12",
+    "@angular/forms": "17.3.12",
+    "@angular/platform-browser": "17.3.12",
+    "@angular/platform-browser-dynamic": "17.3.12",
+    "@angular/router": "17.3.12",
     "@ngx-translate/core": "15.0.0",
     "@ngx-translate/http-loader": "8.0.0",
     "class-transformer": "0.5.1",
@@ -42,9 +42,9 @@
   },
   "devDependencies": {
     "@3angletech/eslint-config": "15.0.2",
-    "@angular-devkit/build-angular": "16.2.0",
-    "@angular/cli": "16.2.0",
-    "@angular/compiler-cli": "16.2.0",
+    "@angular-devkit/build-angular": "17.3.8",
+    "@angular/cli": "17.3.8",
+    "@angular/compiler-cli": "17.3.12",
     "@types/jasmine": "4.3.5",
     "@types/lodash": "4.14.197",
     "eslint": "8.46.0",
@@ -58,7 +58,7 @@
     "stylelint-config-sass-guidelines": "10.0.0",
     "stylelint-config-standard": "34.0.0",
     "stylelint-stylistic": "0.4.3",
-    "typescript": "5.2"
+    "typescript": "5.4.5"
   },
   "engines": {
     "node": ">=18.13",

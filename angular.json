@@ -77,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "minimal-web-frame:build:production"
+              "buildTarget": "minimal-web-frame:build:production"
             },
             "development": {
-              "browserTarget": "minimal-web-frame:build:development"
+              "buildTarget": "minimal-web-frame:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "minimal-web-frame:build"
+            "buildTarget": "minimal-web-frame:build"
           }
         },
         "test": {
@@ -116,5 +116,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
