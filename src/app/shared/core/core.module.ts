@@ -2,7 +2,7 @@
  * Provides the core shared module.
  */
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -81,16 +81,16 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [
-    MODULES,
-    HttpClientModule,
-  ],
   exports: [
     MODULES,
     COMPONENTS,
   ],
   declarations: [
     COMPONENTS,
+  ],
+  imports: [MODULES],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
   ],
 })
 export class CoreModule {

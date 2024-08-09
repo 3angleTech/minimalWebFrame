@@ -1,3 +1,5 @@
+// Not sure if the lint error is correct
+// eslint-disable-next-line import/no-unresolved
 import 'zone.js/testing';
 
 import { getTestBed } from '@angular/core/testing';
