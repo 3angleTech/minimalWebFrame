@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '~environment/environment';
 import { IAuthService } from '~shared/core';
 
 @Component({
@@ -13,7 +12,7 @@ export class LogoutComponent implements OnInit {
 
   public ngOnInit(): void {
     this.authService.logout().subscribe(() => {
-      window.location.href = environment.appBaseUrl;
+      window.location.href = '/';
     });
   }
 }
