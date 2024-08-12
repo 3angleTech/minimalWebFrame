@@ -1,17 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { isNil, isString } from 'lodash';
-
-import { environment } from '~environment/environment';
 
 import { ServerApi } from '../enums/server-api.enum';
 
 import { IURIService, QueryParameterValueType, UrlParameterValueType } from './uri.interface';
+import { EnvironmentService } from '../environment.service';
 
 @Injectable()
 export class UriService implements IURIService {
   private readonly URL_TEMPLATE_REGEX: RegExp = /{{\s?([^{}\s]*)\s?}}/g;
 
-  constructor() { }
+  constructor(
+    @Inject(EnvironmentService)
+    private readonly environmentService: EnvironmentService,
+  ) { }
 
   public buildUrl(
     serverApi: ServerApi,
@@ -33,7 +35,7 @@ export class UriService implements IURIService {
   }
 
   private getBaseUrl(serverApi: ServerApi, urlParameters: Record<string, UrlParameterValueType> | undefined): string {
-    const urlTemplate = `${environment.apiBaseUrl}${serverApi}`;
+    const urlTemplate = `${this.environmentService.apiBaseUrl}${serverApi}`;
 
     return urlTemplate.replace(this.URL_TEMPLATE_REGEX,
       (formatItem: string, actualKey: string): string => {
