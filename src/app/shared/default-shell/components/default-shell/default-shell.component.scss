@@ -1,17 +1,27 @@
-app-default-shell {
+.page-layout {
+  height: 100vh;
   display: grid;
-  grid-template-rows: min-content 1fr;
-  min-height: 100vh;
-  place-content: start stretch;
-
-  app-progress-bar {
-    left: 0;
-    position: absolute;
-    right: 0;
-  }
+  grid-template-areas:
+    "nav top-bar"
+    "nav main-content";
+  grid-template-columns: 130px auto;
+  grid-template-rows: auto 1fr;
 }
 
-.app-default-shell__content {
-  justify-self: center;
-  padding: var(--spacing-large);
+.navigation-menu {
+  grid-area: nav;
+  background-color: #6e28d9;
+  height: 100vh;
+}
+
+.page-top-bar {
+  grid-area: top-bar;
+  background-color: #9446ff;
+  height: 50px;
+}
+
+.page-main-content {
+  grid-area: main-content;
+  background-color: #607d8b;
+  overflow-y: scroll;
 }

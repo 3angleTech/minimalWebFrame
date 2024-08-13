@@ -1,16 +1,10 @@
 @import "theme";
 
-.app-navigation-menu {
-  align-items: center;
-  background-color: app-get-color($app-text-colors, lighter);
-  color: app-get-contrast($app-text-colors, lighter);
+nav {
   display: flex;
-  padding: var(--spacing-small);
-
-  .spacer {
-    display: block;
-    flex-grow: 1;
-  }
+  flex-direction: column;
+  // background-color: app-get-color($app-text-colors, lighter);
+  // color: app-get-contrast($app-text-colors, lighter);
 }
 
 .app-navigation-menu__item {

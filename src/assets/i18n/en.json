@@ -68,12 +68,14 @@
       "USERNAME": "Username"
     }
   },
-  "DEFAULT_SHELL": {
-    "NAVIGATION_MENU": {
-      "LOGIN": "Login",
-      "LOGOUT": "Logout",
-      "ACCOUNT": "Account",
-      "PROFILE": "Profile"
-    }
+  "NavigationMenu": {
+    "Home": "Login",
+    "Reports": "Reports",
+    "Sales": "Sales",
+    "Expenses": "Expenses",
+    "Performance": "Performance",
+    "Profile": "Profile",
+    "Settings": "Settings",
+    "Sandbox": "Sandbox"
   }
 }
