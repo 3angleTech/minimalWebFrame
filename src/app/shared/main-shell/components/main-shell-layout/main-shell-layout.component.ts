@@ -3,13 +3,13 @@ import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStar
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-default-shell',
-  styleUrls: ['./default-shell.component.scss'],
-  templateUrl: './default-shell.component.html',
+  selector: 'app-main-shell-layout',
+  styleUrls: ['./main-shell-layout.component.scss'],
+  templateUrl: './main-shell-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class DefaultShellComponent implements OnDestroy, OnInit {
+export class MainShellLayoutComponent implements OnDestroy, OnInit {
   public readonly routeIsLoading: EventEmitter<boolean> = new EventEmitter<boolean>();
   private routerEventsSubscription: Subscription | undefined;
 

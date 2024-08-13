@@ -6,12 +6,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from '~shared/core';
 
-import { DefaultShellComponent } from './components/default-shell/default-shell.component';
+import { MainShellLayoutComponent } from './components/main-shell-layout/main-shell-layout.component';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 
 const COMPONENTS = [
   NavigationMenuComponent,
-  DefaultShellComponent,
+  MainShellLayoutComponent,
 ];
 
 @NgModule({
@@ -23,4 +23,4 @@ const COMPONENTS = [
     COMPONENTS,
   ],
 })
-export class DefaultShellModule { }
+export class MainShellModule { }

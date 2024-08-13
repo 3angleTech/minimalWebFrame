@@ -3,13 +3,13 @@ import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStar
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-minimal-shell',
-  styleUrls: ['./minimal-shell.component.scss'],
-  templateUrl: './minimal-shell.component.html',
+  selector: 'app-minimal-shell-layout',
+  styleUrls: ['./minimal-shell-layout.component.scss'],
+  templateUrl: './minimal-shell-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class MinimalShellComponent implements OnDestroy, OnInit {
+export class MinimalShellLayoutComponent implements OnDestroy, OnInit {
   public readonly routeIsLoading: EventEmitter<boolean> = new EventEmitter<boolean>();
   private routerEventsSubscription: Subscription | undefined;
 

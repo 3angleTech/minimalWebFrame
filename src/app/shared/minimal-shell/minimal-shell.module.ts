@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from '~shared/core';
 
-import { MinimalShellComponent } from './components/minimal-shell/minimal-shell.component';
+import { MinimalShellLayoutComponent } from './components/minimal-shell-layout/minimal-shell-layout.component';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import { MinimalShellComponent } from './components/minimal-shell/minimal-shell.
     CoreModule,
   ],
   declarations: [
-    MinimalShellComponent,
+    MinimalShellLayoutComponent,
   ],
 })
 export class MinimalShellModule { }

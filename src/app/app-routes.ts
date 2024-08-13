@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
+import { MainShellLayoutComponent } from '~shared/main-shell';
+import { MinimalShellLayoutComponent } from '~shared/minimal-shell';
 
-import { DefaultShellComponent } from '~shared/default-shell';
-import { MinimalShellComponent } from '~shared/minimal-shell';
 import { AuthenticatedGuard } from '~shared/security';
 
 export const APP_ROUTES: Routes = [
@@ -12,7 +12,7 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: '',
-    component: MinimalShellComponent,
+    component: MinimalShellLayoutComponent,
     children: [
       {
         path: 'account',
@@ -23,7 +23,7 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: '',
-    component: DefaultShellComponent,
+    component: MainShellLayoutComponent,
     children: [
       {
         path: 'profile',
