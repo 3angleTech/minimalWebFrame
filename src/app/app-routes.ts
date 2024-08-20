@@ -30,6 +30,11 @@ export const APP_ROUTES: Routes = [
         loadChildren: () => import('./features/profile').then(m => m.ProfileModule),
         runGuardsAndResolvers: 'always',
       },
+      {
+        path: 'sandbox',
+        loadChildren: () => import('./features/profile').then(m => m.ProfileModule),
+        runGuardsAndResolvers: 'always',
+      },
     ],
     canActivate: [AuthenticatedGuard],
     runGuardsAndResolvers: 'always',

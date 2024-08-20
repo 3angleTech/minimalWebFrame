@@ -8,7 +8,7 @@
   --nav__menu-item__icon-color: rgba(255, 255, 255, .7);
   --nav__menu-item-select-color: #FFFFFF;
 
-  background-color: var(--nav-primary-color-2);
+  background-color: var(--nav-primary-color);
 }
 
 .navigation-header {
@@ -34,12 +34,12 @@ nav {
 }
 
 .navigation-menu__section {
-  background-color: var(--nav-primary-color-2);
+  background-color: var(--nav-primary-color);
   color: var(--nav__menu-item-color);
 }
 
 .navigation-menu__sub-section {
-  background-color: var(--nav-primary-color-2);
+  background-color: var(--nav-primary-color);
   color: var(--nav__menu-item-color);
   padding-left: 38px;
 }
@@ -64,14 +64,27 @@ nav {
   padding-left: 24px;
 }
 
-.navigation-menu__section--expanded {
-  background-color: var(--nav-primary-color);
+.navigation-menu__section--active {
+  background-color: var(--nav-primary-color-2);
+  color: white;
   border-left: 4px solid white;
   box-sizing: border-box;
+
+  .navigation-menu__sub-section {
+    background-color: var(--nav-primary-color-2);
+  }
 
   .navigation-menu-item {
     // We apply a correction for the border selection, so we do not have the items shifted to the right.
     padding-left: 20px;
+  }
+
+  .navigation-menu-item.navigation-menu-item--active {
+    color: white;
+
+    i {
+      color: white;
+    }
   }
 
 }
