@@ -32,7 +32,7 @@ export const APP_ROUTES: Routes = [
       },
       {
         path: 'sandbox',
-        loadChildren: () => import('./features/profile').then(m => m.ProfileModule),
+        loadChildren: () => import('./features/sandbox').then(m => m.SandboxFeatureModule),
         runGuardsAndResolvers: 'always',
       },
     ],
