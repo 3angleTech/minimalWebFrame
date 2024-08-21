@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { IAuthService } from '~shared/core';
 
 @Component({
-  selector: 'app-logout',
+  selector: 'app-logout-page',
   template: '',
 })
-export class LogoutComponent implements OnInit {
+export class LogoutPageComponent implements OnInit {
   constructor(
     private readonly authService: IAuthService,
   ) {}

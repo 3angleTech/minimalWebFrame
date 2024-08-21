@@ -19,11 +19,11 @@ interface LoginForm {
 
 @Component({
   selector: 'app-login-page',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
   public loginForm!: FormGroup<LoginForm>;
   public loginFormAlerts!: FormAlert[];
 

@@ -12,11 +12,11 @@ interface ResetPasswordForm {
 }
 
 @Component({
-  selector: 'app-password-reset',
-  templateUrl: './password-reset.component.html',
-  styleUrls: ['./password-reset.component.scss'],
+  selector: 'app-password-reset-page',
+  templateUrl: './password-reset-page.component.html',
+  styleUrls: ['./password-reset-page.component.scss'],
 })
-export class PasswordResetComponent implements OnInit {
+export class PasswordResetPageComponent implements OnInit {
   public resetPasswordForm!: FormGroup<ResetPasswordForm>;
   public resetPasswordFormAlerts!: FormAlert[];
 

@@ -16,12 +16,12 @@ interface ForgotPasswordForm {
 }
 
 @Component({
-  selector: 'app-password-forgot',
-  templateUrl: './password-forgot.component.html',
-  styleUrls: ['./password-forgot.component.scss'],
+  selector: 'app-password-forgot-page',
+  templateUrl: './password-forgot-page.component.html',
+  styleUrls: ['./password-forgot-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PasswordForgotComponent implements OnInit {
+export class PasswordForgotPageComponent implements OnInit {
   public forgotPasswordForm!: FormGroup<ForgotPasswordForm>;
   public forgotPasswordFormAlerts!: FormAlert[];
   public forgotPasswordFormSubmitted: boolean = false;
