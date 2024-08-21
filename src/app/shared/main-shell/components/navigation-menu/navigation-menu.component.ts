@@ -30,7 +30,7 @@ export class NavigationMenuComponent implements OnInit {
   }
 
   public isActive(node: NavigationMenuNode): boolean {
-    const nodeUrl = node.route;
+    const nodeUrl = node.baseRoute;
     // eslint-disable-next-line sonarjs/prefer-immediate-return
     const matches = this.router.url.startsWith(nodeUrl);
 

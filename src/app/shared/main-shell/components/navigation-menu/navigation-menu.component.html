@@ -14,7 +14,7 @@
     </div>
 
     <!-- Subsection -->
-    <div class="navigation-menu__sub-section" *ngIf="section.hasChildren">
+    <div class="navigation-menu__sub-section" *ngIf="section.hasChildren && isActive(section)">
       <div class="navigation-menu-item" *ngFor="let subSection of section.children"
         [ngClass]="{'navigation-menu-item--active': isActive(subSection)}"
       >
