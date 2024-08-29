@@ -4,8 +4,9 @@
   grid-template-areas:
     "nav top-bar"
     "nav main-content";
-  grid-template-columns: 320px auto;
   grid-template-rows: auto 1fr;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  grid-template-columns: 320px auto;
 }
 
 .navigation-menu {

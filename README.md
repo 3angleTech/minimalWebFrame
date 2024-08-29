@@ -20,3 +20,19 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 docker-compose build
 docker-compose up
+
+
+## Extensions
+
+- Stylelint
+
+Add the following in VSCode settings.json to highlight SCSS issues in VSCode:
+
+```
+    "stylelint.validate": [
+        "css",
+        "scss",
+        "less",
+    ]
+```
+- Eslint
