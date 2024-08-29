@@ -1,0 +1,25 @@
+<nav>
+  <div class="navigation-header">
+    <img src="assets/logo.svg" alt="logo">
+  </div>
+
+  <!-- Section -->
+  <div class="navigation-menu__section" *ngFor="let section of sections"
+       [ngClass]="{'navigation-menu__section--active': isActive(section)}"
+  >
+    <div class="navigation-menu-item"
+      [ngClass]="{'navigation-menu-item--active': isActive(section)}">
+      <i class="material-icons mdc-list-item__graphic" aria-hidden="true">{{ section.icon }}</i>
+      <a [routerLink]="section.route">{{ section.label }}</a>
+    </div>
+
+    <!-- Subsection -->
+    <div class="navigation-menu__sub-section" *ngIf="section.hasChildren && isActive(section)">
+      <div class="navigation-menu-item" *ngFor="let subSection of section.children"
+        [ngClass]="{'navigation-menu-item--active': isActive(subSection)}"
+      >
+        <a [routerLink]="subSection.route">{{ subSection.label }}</a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { CoreModule } from '~shared/core';
 
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileComponent } from './pages/profile/profile-page.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 
 const COMPONENTS = [

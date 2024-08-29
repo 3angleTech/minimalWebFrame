@@ -1,2 +1,2 @@
-export { MinimalShellComponent } from './components/minimal-shell/minimal-shell.component';
+export { MinimalShellLayoutComponent } from './components/minimal-shell-layout/minimal-shell-layout.component';
 export { MinimalShellModule } from './minimal-shell.module';

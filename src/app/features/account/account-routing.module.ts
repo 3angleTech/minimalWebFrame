@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnonymousGuard, AuthenticatedGuard } from '~shared/security';
 
 import { AccountShellComponent } from './components/account-shell/account-shell.component';
-import { LoginComponent } from './components/login/login.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { PasswordForgotComponent } from './components/password-forgot/password-forgot.component';
-import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { LoginPageComponent } from './pages/login/login-page.component';
+import { LogoutPageComponent } from './pages/logout/logout-page.component';
+import { PasswordForgotPageComponent } from './pages/password-forgot/password-forgot-page.component';
+import { PasswordResetPageComponent } from './pages/password-reset/password-reset-page.component';
 
 const routes: Routes = [
   {
@@ -20,28 +20,28 @@ const routes: Routes = [
       },
       {
         path: 'login',
-        component: LoginComponent,
+        component: LoginPageComponent,
         canActivate: [
           AnonymousGuard,
         ],
       },
       {
         path: 'logout',
-        component: LogoutComponent,
+        component: LogoutPageComponent,
         canActivate: [
           AuthenticatedGuard,
         ],
       },
       {
         path: 'forgot-password',
-        component: PasswordForgotComponent,
+        component: PasswordForgotPageComponent,
         canActivate: [
           AnonymousGuard,
         ],
       },
       {
         path: 'reset-password',
-        component: PasswordResetComponent,
+        component: PasswordResetPageComponent,
         canActivate: [
           AnonymousGuard,
         ],

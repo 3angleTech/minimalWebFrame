@@ -1,0 +1,99 @@
+@import "theme";
+
+:host {
+  --nav-primary-color: #45515d;
+  --nav-primary-color-2: #3e4954;
+  --nav-separator-color: rgba(255, 255, 255, .5);
+  --nav__menu-item-color: rgb(180, 190, 200);
+  --nav__menu-item__icon-color: rgba(255, 255, 255, .7);
+  --nav__menu-item-select-color: #FFFFFF;
+
+  background-color: var(--nav-primary-color);
+}
+
+.navigation-header {
+  display: flex;
+  height: 49px;
+  border-bottom: 1px solid var(--nav-separator-color);
+  align-items: center;
+
+  margin-left: 20px;
+  margin-right: 20px;
+
+  img {
+    height: 32px;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+
+
+  background-color: var(--nav-primary-color);
+}
+
+.navigation-menu__section {
+  background-color: var(--nav-primary-color);
+  color: var(--nav__menu-item-color);
+}
+
+.navigation-menu__sub-section {
+  background-color: var(--nav-primary-color);
+  color: var(--nav__menu-item-color);
+  padding-left: 38px;
+}
+
+
+.navigation-menu-item {
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-right: 10px;
+    color: var(--nav__menu-item__icon-color);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.navigation-menu-item {
+  padding-left: 24px;
+}
+
+.navigation-menu__section--active {
+  background-color: var(--nav-primary-color-2);
+  color: white;
+  border-left: 4px solid white;
+  box-sizing: border-box;
+
+  .navigation-menu__sub-section {
+    background-color: var(--nav-primary-color-2);
+  }
+
+  .navigation-menu-item {
+    // We apply a correction for the border selection, so we do not have the items shifted to the right.
+    padding-left: 20px;
+  }
+
+  .navigation-menu-item.navigation-menu-item--active {
+    color: white;
+
+    i {
+      color: white;
+    }
+  }
+
+}
+
+.navigation-menu__section--selected {
+  color: var(--nav__menu-item-select-color)
+}
+
+.navigation-menu-item--selected {
+  color: var(--nav__menu-item-select-color)
+}
+
