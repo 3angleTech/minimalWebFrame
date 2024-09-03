@@ -2,7 +2,6 @@
   height: 100vh;
   display: grid;
   grid-template-areas:
-    "nav top-bar"
     "nav main-content";
   grid-template-rows: auto 1fr;
   /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
@@ -13,12 +12,6 @@
   grid-area: nav;
   background-color: #6e28d9;
   height: 100vh;
-}
-
-.page-top-bar {
-  grid-area: top-bar;
-  background-color: #9446ff;
-  height: 50px;
 }
 
 .page-main-content {
