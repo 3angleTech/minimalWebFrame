@@ -5,8 +5,6 @@ import { Injectable, ApplicationRef, Injector, ComponentRef, Type, ViewContainer
 */
 @Injectable()
 export class DialogService {
-  private dialogComponentRef!: ComponentRef<any>;
-
   constructor(
     private readonly appRef: ApplicationRef,
     private readonly injector: Injector,
@@ -14,19 +12,17 @@ export class DialogService {
   }
 
   open(viewContainerRef: ViewContainerRef, component: Type<any>, componentProps?: any): ComponentRef<any> {
-    this.dialogComponentRef = viewContainerRef.createComponent(component, {
+    const dialogComponentRef = viewContainerRef.createComponent(component, {
       injector: this.injector,
     });
 
-    this.dialogComponentRef.instance["configuration"] = componentProps;
+    dialogComponentRef.instance["configuration"] = componentProps;
 
-    return this.dialogComponentRef;
+    return dialogComponentRef;
   }
 
-  close() {
-    if (this.dialogComponentRef) {
-      this.appRef.detachView(this.dialogComponentRef.hostView);
-      this.dialogComponentRef.destroy();
-    }
+  close(dialogComponentRef: ComponentRef<any>) {
+    this.appRef.detachView(dialogComponentRef.hostView);
+    dialogComponentRef.destroy();
   }
 }

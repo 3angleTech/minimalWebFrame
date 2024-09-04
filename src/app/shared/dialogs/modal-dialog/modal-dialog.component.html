@@ -10,8 +10,12 @@
 
       @if (configuration.actions) {
         <div class="modal-actions">
-          <button>{{ configuration.actions.cancelButton | translate }}</button>
-          <button>{{ configuration.actions.acceptButton | translate }}</button>
+          <button (click)="closeClickHandler()">
+            {{ configuration.actions.cancelButton | translate }}
+          </button>
+          <button (click)="acceptClickHandler()">
+            {{ configuration.actions.acceptButton | translate }}
+          </button>
         </div>
       }
     </div>

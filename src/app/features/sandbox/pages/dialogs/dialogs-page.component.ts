@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef } from '@angular/core';
-import { ConfirmDialogComponent, DialogConfiguration } from '~shared/dialogs/confirm/confirm-dialog.component';
+import { ModalDialogComponent, DialogConfiguration } from '~shared/dialogs/modal-dialog/modal-dialog.component';
 import { DialogService } from '~shared/dialogs/dialog.service';
 
 @Component({
@@ -24,6 +24,16 @@ export class DialogsPageComponent {
       description: 'Are you sure you want perform the action?',
     };
 
-    this.dialogService.open(this.vcr, ConfirmDialogComponent, dialogConfig);
+    const dialogRef = this.dialogService.open(this.vcr, ModalDialogComponent, dialogConfig);
+
+    dialogRef.instance.acceptEvent.subscribe(() => {
+      console.log('Accepted');
+      this.dialogService.close(dialogRef);
+    });
+
+    dialogRef.instance.closeEvent.subscribe(() => {
+      console.log('Closed');
+      this.dialogService.close(dialogRef);
+    });
   }
 }

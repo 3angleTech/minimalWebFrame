@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 export interface DialogConfiguration {
   type?: 'confirm' | 'warning' | 'danger';
@@ -11,13 +11,15 @@ export interface DialogConfiguration {
 }
 
 @Component({
-  selector: 'app-confirm-dialog',
-  templateUrl: './confirm-dialog.component.html',
-  styleUrl: './confirm-dialog.component.css',
+  selector: 'app-modal-dialog',
+  templateUrl: './modal-dialog.component.html',
+  styleUrl: './modal-dialog.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ConfirmDialogComponent {
+export class ModalDialogComponent {
   @Input() configuration!: DialogConfiguration;
+  @Output() acceptEvent = new EventEmitter<void>();
+  @Output() closeEvent = new EventEmitter<void>();
 
   public theamingClass: 'dialog--confirm' | 'dialog--warning' | 'dialog--danger' = 'dialog--confirm';
 
@@ -50,6 +52,11 @@ export class ConfirmDialogComponent {
     };
   }
 
-  public closeModal() {
+  public acceptClickHandler() {
+    this.acceptEvent.emit();
+  }
+
+  public closeClickHandler() {
+    this.closeEvent.emit();
   }
 }
