@@ -1,23 +1,22 @@
 @if (configuration) {
-  <div class="modal" [ngClass]="theamingClass">
-    <div class="modal-content">
-      <div>
+  <div class="dialog" [ngClass]="theamingClass">
+    <div class="dialog__title">
         {{ configuration!.title | translate }}
-      </div>
-      <div>
-        {{ configuration.description | translate }}
-      </div>
-
-      @if (configuration.actions) {
-        <div class="modal-actions">
-          <button (click)="closeClickHandler()">
-            {{ configuration.actions.cancelButton | translate }}
-          </button>
-          <button (click)="acceptClickHandler()">
-            {{ configuration.actions.acceptButton | translate }}
-          </button>
-        </div>
-      }
     </div>
+    <div class="dialog__content">
+      {{ configuration.description | translate }}
+    </div>
+
+    @if (configuration.actions) {
+
+      <div class="dialog__actions">
+        <button (click)="closeClickHandler()">
+          {{ configuration.actions.cancelButton | translate }}
+        </button>
+        <button (click)="acceptClickHandler()">
+          {{ configuration.actions.acceptButton | translate }}
+        </button>
+      </div>
+    }
   </div>
 }

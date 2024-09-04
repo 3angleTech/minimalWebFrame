@@ -36,4 +36,45 @@ export class DialogsPageComponent {
       this.dialogService.close(dialogRef);
     });
   }
+
+  public openWarningDialog() {
+    const dialogConfig: DialogConfiguration = {
+      type: 'warning',
+      title: 'GENERIC_DIALOG.WARNING',
+      description: 'Are you sure you want perform the action?',
+    };
+
+    const dialogRef = this.dialogService.open(this.vcr, ModalDialogComponent, dialogConfig);
+
+    dialogRef.instance.acceptEvent.subscribe(() => {
+      console.log('Accepted');
+      this.dialogService.close(dialogRef);
+    });
+
+    dialogRef.instance.closeEvent.subscribe(() => {
+      console.log('Closed');
+      this.dialogService.close(dialogRef);
+    });
+  }
+
+  public openDangerDialog() {
+    const dialogConfig: DialogConfiguration = {
+      type: 'danger',
+      title: 'GENERIC_DIALOG.ERROR',
+      description: 'Are you sure you want perform the action?',
+    };
+
+    const dialogRef = this.dialogService.open(this.vcr, ModalDialogComponent, dialogConfig);
+
+    dialogRef.instance.acceptEvent.subscribe(() => {
+      console.log('Accepted');
+      this.dialogService.close(dialogRef);
+    });
+
+    dialogRef.instance.closeEvent.subscribe(() => {
+      console.log('Closed');
+      this.dialogService.close(dialogRef);
+    });
+  }
+
 }
