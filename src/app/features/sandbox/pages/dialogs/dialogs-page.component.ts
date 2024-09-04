@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef } from '@angular/core';
-import { ModalDialogComponent, DialogConfiguration } from '~shared/dialogs/modal-dialog/modal-dialog.component';
-import { DialogService } from '~shared/dialogs/dialog.service';
+import { ModalDialogComponent, DialogConfiguration } from '~shared/core/components/modal-dialog/modal-dialog.component';
+import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-dialog.service';
 
 @Component({
   selector: 'app-dialogs-page',
@@ -12,7 +12,7 @@ export class DialogsPageComponent {
   @ViewChild('dialogContainer', { read: ViewContainerRef, static: true }) viewContainerRef!: ViewContainerRef;
 
   constructor(
-    private readonly dialogService: DialogService,
+    private readonly dialogService: ModalDialogService,
     private vcr: ViewContainerRef,
   ) {
 

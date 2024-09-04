@@ -4,7 +4,7 @@ import { SandboxFeatureRoutingModule } from './sandbox-feature-routing.module';
 import { DialogsPageComponent } from './pages/dialogs/dialogs-page.component';
 import { TypographyPageComponent } from './pages/typography/typography-page.component';
 import { PageTopBarModule } from '~shared/core/components/page-top-bar/page-top-bar.module';
-import { CommonDialogsModule } from '~shared/dialogs/common-dialogs.module';
+import { ModalDialogsModule } from '~shared/core/components/modal-dialog/modal-dialog.module';
 
 const COMPONENTS = [
   DialogsPageComponent,
@@ -16,7 +16,7 @@ const COMPONENTS = [
     CoreModule,
     SandboxFeatureRoutingModule,
     PageTopBarModule,
-    CommonDialogsModule,
+    ModalDialogsModule,
   ],
   declarations: [
     COMPONENTS,

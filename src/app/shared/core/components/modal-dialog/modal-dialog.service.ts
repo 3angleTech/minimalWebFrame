@@ -4,7 +4,7 @@ import { Injectable, ApplicationRef, Injector, ComponentRef, Type, ViewContainer
 * DialogService is a service that allows you to dynamically open and close dialogs.
 */
 @Injectable()
-export class DialogService {
+export class ModalDialogService {
   constructor(
     private readonly appRef: ApplicationRef,
     private readonly injector: Injector,

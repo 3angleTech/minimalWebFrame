@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
+import { ModalDialogComponent } from './modal-dialog.component';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { DialogService } from './dialog.service';
+import { ModalDialogService } from './modal-dialog.service';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,8 @@ import { DialogService } from './dialog.service';
     ModalDialogComponent,
   ],
   providers: [
-    DialogService,
+    ModalDialogService,
   ],
 })
-export class CommonDialogsModule {
+export class ModalDialogsModule {
 }
