@@ -28,6 +28,7 @@ module.exports = {
         ]
       }
     ],
+    "no-any": false,
     "capitalized-comments": "off",
     "max-params": "off",
   },

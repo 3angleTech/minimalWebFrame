@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
-import { PageTopBarComponent } from './page-top-bar.component';
+import { ModalDialogComponent } from './modal-dialog.component';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { ModalDialogService } from './modal-dialog.service';
 
 @NgModule({
   declarations: [
-    PageTopBarComponent,
+    ModalDialogComponent,
   ],
   imports: [
     CommonModule,
     TranslateModule,
   ],
   exports: [
-    PageTopBarComponent,
+    ModalDialogComponent,
   ],
-  providers: [],
+  providers: [
+    ModalDialogService,
+  ],
 })
-export class PageTopBarModule {
+export class ModalDialogsModule {
 }

@@ -1,4 +1,23 @@
 {
+  "BUTTONS": {
+    "OK": "OK",
+    "SEND": "Send",
+    "CONTINUE": "Continue",
+    "APPROVE": "Approve",
+    "SAVE": "Save",
+    "ADD": "Add",
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel",
+    "CLOSE": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "BACK": "Back"
+  },
+  "GENERIC_DIALOG": {
+    "CONFIRM": "Confirm",
+    "WARNING": "Warning",
+    "ERROR": "Error"
+  },
   "GENERAL": {
     "LOADING_PAGE": "Loading page…"
   },

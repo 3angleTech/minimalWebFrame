@@ -1,0 +1,37 @@
+:host {
+  display: flex;
+}
+
+.dialog {
+  background-color: #FFFFFF;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+
+  .dialog__title {
+    font-weight: 500;
+  }
+
+  .dialog__actions {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+  }
+
+  .dialog__actions button {
+    margin-right: 10px;
+  }
+}
+
+.dialog.dialog--confirm .dialog__title {
+  color: #0099ff;
+}
+
+.dialog.dialog--warning .dialog__title {
+  color: #ffb300;
+}
+
+.dialog.dialog--danger .dialog__title {
+  color: #ff3300;
+}
