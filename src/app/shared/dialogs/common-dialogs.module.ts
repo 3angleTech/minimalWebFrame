@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
-import { PageTopBarComponent } from './page-top-bar.component';
+import { ConfirmDialogComponent } from './confirm/confirm-dialog.component';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { DialogService } from './dialog.service';
 
 @NgModule({
   declarations: [
-    PageTopBarComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
     TranslateModule,
   ],
   exports: [
-    PageTopBarComponent,
+    ConfirmDialogComponent,
   ],
-  providers: [],
+  providers: [
+    DialogService,
+  ],
 })
-export class PageTopBarModule {
+export class CommonDialogsModule {
 }

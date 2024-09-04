@@ -1,0 +1,19 @@
+@if (configuration) {
+  <div class="modal" [ngClass]="theamingClass">
+    <div class="modal-content">
+      <div>
+        {{ configuration!.title | translate }}
+      </div>
+      <div>
+        {{ configuration.description | translate }}
+      </div>
+
+      @if (configuration.actions) {
+        <div class="modal-actions">
+          <button>{{ configuration.actions.cancelButton | translate }}</button>
+          <button>{{ configuration.actions.acceptButton | translate }}</button>
+        </div>
+      }
+    </div>
+  </div>
+}
