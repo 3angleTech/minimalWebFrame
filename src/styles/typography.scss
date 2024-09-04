@@ -1,9 +1,9 @@
+
 :root {
   /* Font Size Variables */
-  --typo-scale-title-large: 3rem;    /* For large titles, such as page titles or main headings */
-  --typo-scale-title: 2.5rem;        /* For regular titles or section headings */
-  --typo-scale-subtitle: 1.75rem;    /* For subtitles or supporting headings */
-  --typo-scale-body-large: 1.5rem;   /* For large body text, emphasis paragraphs */
+  --typo-scale-title-large: 1.5rem;    /* For large titles, such as page titles or main headings */
+  --typo-scale-title: 1.25rem;        /* For regular titles or section headings */
+  --typo-scale-subtitle: 1.125rem;    /* For subtitles or supporting headings */
   --typo-scale-body: 1rem;           /* Standard body text, used in most paragraphs */
   --typo-scale-button: 0.875rem;     /* For button text */
   --typo-scale-body-small: 0.875rem; /* For small body text, notes, or secondary content */
@@ -15,59 +15,100 @@
   --font-weight-regular: 400;        /* Regular weight text */
 }
 
-/* Class Definitions */
+/* Class Definitions Placeholder
+*  These ones should be extended in other classes, to optimize the CSS output
+*/
 
 /* Use for large, main headings or page titles */
-.typo-title-large {
+%typo-title-large {
   font-size: var(--typo-scale-title-large);
   font-weight: var(--font-weight-strong);
 }
 
 /* Use for standard titles, such as section headers or article headings */
-.typo-title {
+%typo-title {
   font-size: var(--typo-scale-title);
   font-weight: var(--font-weight-strong);
 }
 
 /* Use for subtitles, secondary headings, or supporting text below headings */
-.typo-subtitle {
+%typo-subtitle {
   font-size: var(--typo-scale-subtitle);
   font-weight: var(--font-weight-regular);
 }
 
-/* Use for emphasized body text, such as key paragraphs or highlighted content */
-.typo-body-large {
-  font-size: var(--typo-scale-body-large);
-  font-weight: var(--font-weight-regular);
-}
-
 /* Use for standard paragraphs of text in articles, blogs, and general content */
-.typo-body {
+%typo-body {
   font-size: var(--typo-scale-body);
   font-weight: var(--font-weight-regular);
 }
 
+/* Use for strong or emphasized body text */
+%typo-body-strong {
+  font-size: var(--typo-scale-body);
+  font-weight: var(--font-weight-strong);
+}
+
 /* Use for secondary or small body text, such as footnotes or disclaimers */
-.typo-body-small {
+%typo-body-small {
   font-size: var(--typo-scale-body-small);
   font-weight: var(--font-weight-regular);
 }
 
 /* Use for text inside buttons */
-.typo-button {
+%typo-button {
   font-size: var(--typo-scale-button);
   font-weight: var(--font-weight-strong);
 }
 
 /* Use for captions, small text describing images, figures, or tables */
-.typo-caption {
+%typo-caption {
   font-size: var(--typo-scale-caption);
   font-weight: var(--font-weight-regular);
 }
 
 /* Use for overline text, such as labels or small uppercase text often above headings */
-.typo-overline {
+%typo-overline {
   font-size: var(--typo-scale-overline);
   font-weight: var(--font-weight-regular);
   text-transform: uppercase;
+}
+
+/**
+* Class Definitions that can be used directly in HTML elements
+*/
+.typo-title-large {
+  @extend %typo-title-large;
+}
+
+.typo-title {
+  @extend %typo-title;
+}
+
+.typo-subtitle {
+  @extend %typo-subtitle;
+}
+
+.typo-body {
+  @extend %typo-body;
+}
+
+.typo-body-strong {
+  @extend %typo-body-strong;
+}
+
+.typo-body-small {
+  @extend %typo-body-small;
+}
+
+.typo-button {
+  @extend %typo-button;
+}
+
+.typo-caption {
+  @extend %typo-caption;
+}
+
+.typo-overline {
+  @extend %typo-overline;
 }

@@ -1,11 +1,14 @@
+@import "src/styles/typography";
+
 :host {
   display: flex;
   align-items: center;
   background-color: #9446ff;
   height: 50px;
 
-  .top-bar__title {
-    font-weight: 500;
+  ::ng-deep .top-bar__title {
+    @extend %typo-title-large;
+
     color: rgb(217 217 95);
   }
 }

@@ -1,3 +1,28 @@
 :host {
   display: block;
 }
+
+.typo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.typo-table th,
+.typo-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.class-name {
+  font-family: monospace;
+  color: #555;
+}
+
+.typo-table td h1,
+.typo-table td h2,
+.typo-table td h3,
+.typo-table td p,
+.typo-table td button {
+  margin: 0;
+}

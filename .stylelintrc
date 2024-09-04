@@ -3,6 +3,11 @@
     "@3angletech/eslint-config/style"
   ],
   "rules": {
+    "selector-pseudo-element-no-unknown": [
+      true, {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ],
     "selector-type-no-unknown": [
       true,
       {
