@@ -17,6 +17,7 @@
         ]
       }
     ],
+    "custom-property-empty-line-before": null,
     "function-no-unknown": null,
     "import-notation": null
   }
