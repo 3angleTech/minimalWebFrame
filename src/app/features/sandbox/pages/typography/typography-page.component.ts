@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import { BasePageComponent } from '~shared/core/components/base-page/base-page.component';
 
 @Component({
   selector: 'app-typography-page',
@@ -6,4 +7,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./typography-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TypographyPageComponent { }
+export class TypographyPageComponent extends BasePageComponent {
+}

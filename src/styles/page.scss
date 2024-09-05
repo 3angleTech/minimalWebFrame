@@ -1,9 +1,21 @@
+.shell-main-content .page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .card {
   background-color: var(--background-color);
   padding: var(--spacing);
   margin: var(--spacing-lg);
   border: 1px solid var(--background-border-color);
   border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
 
   .card__title {
     @extend %typo-title;

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { BasePageComponent } from '~shared/core/components/base-page/base-page.component';
 import { ModalDialogComponent, DialogConfiguration } from '~shared/core/components/modal-dialog/modal-dialog.component';
 import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-dialog.service';
 
@@ -8,14 +9,14 @@ import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-d
   styleUrls: ['./dialogs-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DialogsPageComponent {
+export class DialogsPageComponent extends BasePageComponent {
   @ViewChild('dialogContainer', { read: ViewContainerRef, static: true }) viewContainerRef!: ViewContainerRef;
 
   constructor(
     private readonly dialogService: ModalDialogService,
     private vcr: ViewContainerRef,
   ) {
-
+    super();
   }
 
   public openConfirmDialog() {

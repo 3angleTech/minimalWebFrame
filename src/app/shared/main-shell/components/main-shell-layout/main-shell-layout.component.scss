@@ -1,4 +1,4 @@
-.page-layout {
+.shell-layout {
   height: 100vh;
   display: grid;
   grid-template-areas:
@@ -13,8 +13,11 @@
   height: 100vh;
 }
 
-.page-main-content {
+.shell-main-content {
+  // display: flex;
+  // flex-direction: column;
+  // height: 100vh;
   grid-area: main-content;
   background-color: var(--background-color-shade-1);
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
