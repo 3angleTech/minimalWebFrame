@@ -1,16 +1,41 @@
 @import "theme";
 @import "typography";
 
+// Charcoal
 :host {
-  --nav-primary-color: #45515d;
-  --nav-primary-color-2: #3e4954;
-  --nav-separator-color: rgba(255 255 255 50%);
-  --nav-menu-item-color: rgb(180 190 200);
-  --nav-menu-item-icon-color: rgba(255 255 255 70%);
-  --nav-menu-item-select-color: #FFFFFF;
+  --nav-primary-color: #333333; // charcoal grey background
+  --nav-primary-color-2: #2C2C2C; // darker shade for secondary elements
+  --nav-separator-color: rgba(255 255 255 0.2); // subtle white separators
+  --nav-menu-item-color: #B0BEC5; // soft grey for menu items
+  --nav-menu-item-icon-color: rgba(255 255 255 0.6); // less intense white for icons
+  --nav-menu-item-select-color: #FFFFFF; // bright white for selected item
 
   background-color: var(--nav-primary-color);
 }
+
+// Deep Blue
+// :host {
+//   --nav-primary-color: #1D2C3B; // deep navy blue background
+//   --nav-primary-color-2: #16222A; // darker blue for secondary areas
+//   --nav-separator-color: rgba(255 255 255 0.3); // thin white lines for separators
+//   --nav-menu-item-color: #8FA1B3; // light blue-grey for text
+//   --nav-menu-item-icon-color: rgba(255 255 255 0.7); // lighter icons
+//   --nav-menu-item-select-color: #FFFFFF; // bright white for the active item
+
+//   background-color: var(--nav-primary-color);
+// }
+
+// Warm Grey & Orange Accent
+// :host {
+//   --nav-primary-color: #4A4A4A; // warm grey background
+//   --nav-primary-color-2: #3D3D3D; // darker grey for secondary areas
+//   --nav-separator-color: rgba(255 255 255 0.25); // white with slight transparency
+//   --nav-menu-item-color: #E0E0E0; // light grey for text
+//   --nav-menu-item-icon-color: rgba(255 165 0 0.8); // subtle orange for icons
+//   --nav-menu-item-select-color: #FFA500; // orange for the selected item
+
+//   background-color: var(--nav-primary-color);
+// }
 
 .navigation-header {
   display: flex;
@@ -63,8 +88,8 @@ nav {
 
 .navigation-menu__section--active {
   background-color: var(--nav-primary-color-2);
-  color: #FFFFFF;
-  border-left: 4px solid #FFFFFF;
+  color: var(--nav-menu-item-select-color);
+  border-left: 4px solid var(--nav-menu-item-select-color);
   box-sizing: border-box;
 
   .navigation-menu__sub-section {
@@ -77,11 +102,11 @@ nav {
   }
 
   .navigation-menu-item.navigation-menu-item--active {
-    color: #FFFFFF;
+    color: var(--nav-menu-item-select-color);
 
     /* stylelint-disable-next-line max-nesting-depth */
     i {
-      color: #FFFFFF;
+      color: var(--nav-menu-item-select-color);
     }
   }
 

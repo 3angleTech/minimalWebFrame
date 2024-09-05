@@ -10,12 +10,11 @@
 
 .navigation-menu {
   grid-area: nav;
-  background-color: #6e28d9;
   height: 100vh;
 }
 
 .page-main-content {
   grid-area: main-content;
-  background-color: #607d8b;
+  background-color: var(--background-color-shade-1);
   overflow-y: scroll;
 }
