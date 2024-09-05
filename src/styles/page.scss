@@ -1,11 +1,11 @@
 .app-page-section {
-  margin-bottom: var(--spacing-normal);
-  margin-top: var(--spacing-normal);
+  margin-bottom: var(--spacing);
+  margin-top: var(--spacing);
 }
 
 .app-page-section-actions {
   display: grid;
-  grid-gap: var(--spacing-small);
+  grid-gap: var(--spacing-sm);
 
   > :first-child {
     margin-top: 0;
