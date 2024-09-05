@@ -1,0 +1,15 @@
+.card {
+  background-color: var(--background-color);
+  padding: var(--spacing);
+  margin: var(--spacing-lg);
+  border: 1px solid var(--background-border-color);
+  border-radius: var(--border-radius);
+
+  .card__title {
+    @extend %typo-title;
+  }
+
+  .card__content {
+    @extend %typo-body;
+  }
+}
