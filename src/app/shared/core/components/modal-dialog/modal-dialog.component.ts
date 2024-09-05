@@ -13,7 +13,7 @@ export interface DialogConfiguration {
 @Component({
   selector: 'app-modal-dialog',
   templateUrl: './modal-dialog.component.html',
-  styleUrl: './modal-dialog.component.css',
+  styleUrl: './modal-dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ModalDialogComponent {

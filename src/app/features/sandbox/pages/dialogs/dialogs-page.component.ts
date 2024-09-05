@@ -5,7 +5,7 @@ import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-d
 @Component({
   selector: 'app-dialogs-page',
   templateUrl: './dialogs-page.component.html',
-  styleUrls: ['./dialogs-page.component.css'],
+  styleUrls: ['./dialogs-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogsPageComponent {
