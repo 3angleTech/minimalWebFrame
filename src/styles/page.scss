@@ -6,7 +6,7 @@
 
 .card {
   background-color: var(--background-color);
-  padding: var(--spacing);
+  padding: var(--spacing-lg);
   margin: var(--spacing-lg);
   border: 1px solid var(--background-border-color);
   border-radius: var(--border-radius);
@@ -19,6 +19,8 @@
 
   .card__title {
     @extend %typo-title;
+
+    padding-bottom: var(--spacing-lg);
   }
 
   .card__content {
