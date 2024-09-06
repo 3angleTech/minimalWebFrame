@@ -5,9 +5,9 @@
         [class.app-form-alerts__alert--success]="alert.type == alertType.Success"
         [class.app-form-alerts__alert--warning]="alert.type == alertType.Warning"
         [title]="alert.message | translate : alert.messageParams">
-      <i *ngIf="alert.type == alertType.Success" class="material-icons">check</i>
-      <i *ngIf="alert.type == alertType.Warning" class="material-icons">warning</i>
-      <i *ngIf="alert.type == alertType.Error" class="material-icons">error</i>
+        <fa-icon *ngIf="alert.type == alertType.Success" [icon]="['fas', 'check']"></fa-icon>
+        <fa-icon *ngIf="alert.type == alertType.Warning" [icon]="['fas', 'exclamation-triangle']"></fa-icon>
+        <fa-icon *ngIf="alert.type == alertType.Error" [icon]="['fas', 'times-circle']"></fa-icon>
       <div>{{ alert.message | translate : alert.messageParams }}</div>
       <button (click)="deleteAlert(i)" [attr.aria-label]="'GENERAL.BUTTONS.CLOSE' | translate" type="button">x</button>
     </li>
