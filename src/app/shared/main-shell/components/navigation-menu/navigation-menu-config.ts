@@ -50,8 +50,8 @@ export const navigationMenuDefinition: INavigationMenuNodeDefinition = {
       route: '/sandbox',
       children: [
         {
-          label: 'Typography',
-          route: '/sandbox/typography',
+          label: 'Styling Guide',
+          route: '/sandbox/styling-guide',
           children: [],
         },
         {

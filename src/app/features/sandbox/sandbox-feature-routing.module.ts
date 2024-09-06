@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TypographyPageComponent } from './pages/typography/typography-page.component';
+import { StylingGuidePageComponent } from './pages/styling-guide/styling-guide-page.component';
 import { RouterModule } from '@angular/router';
 import { DialogsPageComponent } from './pages/dialogs/dialogs-page.component';
 
@@ -9,8 +9,8 @@ const sandboxRoutes = [
     component: DialogsPageComponent,
   },
   {
-    path: 'typography',
-    component: TypographyPageComponent,
+    path: 'styling-guide',
+    component: StylingGuidePageComponent,
   },
 ];
 
