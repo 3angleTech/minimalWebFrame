@@ -2,6 +2,36 @@
   display: block;
 }
 
+td:nth-child(1) {
+  width: 180px;
+}
+
+/* Target the second column in all rows */
+td:nth-child(2) {
+  width: 300px;
+}
+
+.table--spacing td {
+  div {
+    height: 19px;
+    background-color: pink;
+  }
+}
+
+.spacing-lg {
+  width: var(--spacing-lg);
+}
+
+.spacing {
+  width: var(--spacing);
+  background-color: pink;
+}
+
+.spacing-sm {
+  width: var(--spacing-sm);
+  background-color: pink;
+}
+
 .typo-table {
   width: 100%;
   border-collapse: collapse;
