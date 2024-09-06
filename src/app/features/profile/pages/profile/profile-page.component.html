@@ -1,3 +1,10 @@
 <app-page-top-bar>
-  <span class="top-bar__title">Profile {{currentUser?.fullName}}</span>
+  <span class="top-bar__title">Profile</span>
 </app-page-top-bar>
+
+<div class="card">
+  <div class="card__content">
+    <div>Full Name: {{currentUser?.fullName}}</div>
+    <div>Email: {{currentUser?.email}}</div>
+  </div>
+</div>
