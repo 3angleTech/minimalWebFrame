@@ -16,7 +16,7 @@ export class ModalDialogService {
       injector: this.injector,
     });
 
-    dialogComponentRef.instance["configuration"] = componentProps;
+    dialogComponentRef.instance['configuration'] = componentProps;
 
     return dialogComponentRef;
   }

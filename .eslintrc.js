@@ -28,7 +28,7 @@ module.exports = {
         ]
       }
     ],
-    "no-any": false,
+    "no-any": 0,
     "capitalized-comments": "off",
     "max-params": "off",
   },
