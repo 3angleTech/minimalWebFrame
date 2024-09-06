@@ -3,8 +3,29 @@
   --form-single-column-width: 20rem;
 
   // Spacing variables.
-  --spacing-large: 2rem;
-  --spacing-normal: 1rem;
-  --spacing-medium: 0.75rem;
-  --spacing-small: 0.5rem;
+  --spacing-lg: 1.5rem;
+  --spacing: 0.75rem;
+  --spacing-sm: 0.375rem;
+
+  // Text color variables.
+  --color-text-dark-enhanced:  rgba(0, 0, 0, 0.87);
+  --color-text-dark:  rgba(0, 0, 0, 0.6);
+  --color-text-dark-disabled:  rgba(0, 0, 0, 0.3);
+
+  --color-text-light-enhanced:  rgba(255, 255, 255, 0.87);
+  --color-text-light:  rgba(255, 255, 255, 0.6);
+  --color-text-light-disabled:  rgba(255, 255, 255, 0.3);
+
+ // Background and Border color variables.
+  --background-color: #ffffff;
+  --background-color-shade-1: #d3d3d3;
+  --background-color-shade-2: #a9a9a9;
+  --background-border-color: #a9a9a9;
+
+  // Border radius variables.
+  --border-radius-lg: 0.5rem;
+  --border-radius-md: 0.375rem;
+  --border-radius: 0.25rem;
+  --border-radius-sm: 0.125rem;
+  --border-radius-none: 0;
 }

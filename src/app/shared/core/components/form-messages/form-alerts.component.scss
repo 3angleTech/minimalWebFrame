@@ -11,17 +11,17 @@
 
   li {
     align-items: center;
-    border-radius: var(--border-radius-medium);
+    border-radius: var(--border-radius-md);
     display: flex;
     flex-direction: row;
-    margin-bottom: var(--spacing-medium);
+    margin-bottom: var(--spacing);
     overflow: hidden;
-    padding: var(--spacing-small);
+    padding: var(--spacing-sm);
     text-overflow: ellipsis;
   }
 
   li > i {
-    padding-right: var(--spacing-small);
+    padding-right: var(--spacing-sm);
   }
 
   li > div {

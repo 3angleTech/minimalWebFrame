@@ -3,6 +3,11 @@
     "@3angletech/eslint-config/style"
   ],
   "rules": {
+    "selector-pseudo-element-no-unknown": [
+      true, {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ],
     "selector-type-no-unknown": [
       true,
       {
@@ -12,6 +17,10 @@
         ]
       }
     ],
+    "selector-max-type": null,
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "custom-property-empty-line-before": null,
     "function-no-unknown": null,
     "import-notation": null
   }

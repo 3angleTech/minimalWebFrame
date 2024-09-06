@@ -1,24 +1,24 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { BasePageComponent } from '~shared/core/components/base-page/base-page.component';
 import { ModalDialogComponent, DialogConfiguration } from '~shared/core/components/modal-dialog/modal-dialog.component';
 import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-dialog.service';
 
 @Component({
   selector: 'app-dialogs-page',
   templateUrl: './dialogs-page.component.html',
-  styleUrls: ['./dialogs-page.component.css'],
+  styleUrls: ['./dialogs-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DialogsPageComponent {
-  @ViewChild('dialogContainer', { read: ViewContainerRef, static: true }) viewContainerRef!: ViewContainerRef;
-
+export class DialogsPageComponent extends BasePageComponent {
   constructor(
     private readonly dialogService: ModalDialogService,
     private vcr: ViewContainerRef,
   ) {
-
+    super();
   }
 
   public openConfirmDialog() {
+    debugger;
     const dialogConfig: DialogConfiguration = {
       title: 'GENERIC_DIALOG.CONFIRM',
       description: 'Are you sure you want perform the action?',

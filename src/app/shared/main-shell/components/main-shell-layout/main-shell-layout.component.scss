@@ -1,4 +1,4 @@
-.page-layout {
+.shell-layout {
   height: 100vh;
   display: grid;
   grid-template-areas:
@@ -10,12 +10,14 @@
 
 .navigation-menu {
   grid-area: nav;
-  background-color: #6e28d9;
   height: 100vh;
 }
 
-.page-main-content {
+.shell-main-content {
+  // display: flex;
+  // flex-direction: column;
+  // height: 100vh;
   grid-area: main-content;
-  background-color: #607d8b;
-  overflow-y: scroll;
+  background-color: var(--background-color-shade-1);
+  overflow-y: hidden;
 }

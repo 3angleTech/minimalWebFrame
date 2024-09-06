@@ -1,22 +1,29 @@
-.app-page-section {
-  margin-bottom: var(--spacing-normal);
-  margin-top: var(--spacing-normal);
+.shell-main-content .page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-.app-page-section-actions {
-  display: grid;
-  grid-gap: var(--spacing-small);
+.card {
+  background-color: var(--background-color);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg);
+  border: 1px solid var(--background-border-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  margin-bottom: var(--spacing-lg);
+  overflow-y: auto;
 
-  > :first-child {
-    margin-top: 0;
+  .card__title {
+    @extend %typo-title;
+
+    padding-bottom: var(--spacing-lg);
   }
 
-  > :last-child {
-    margin-bottom: 0;
-  }
-
-  a {
-    line-height: 2em;
-    text-align: center;
+  .card__content {
+    @extend %typo-body;
   }
 }

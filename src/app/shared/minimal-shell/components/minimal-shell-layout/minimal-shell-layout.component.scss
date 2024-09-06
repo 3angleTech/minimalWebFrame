@@ -12,6 +12,29 @@ app-minimal-shell-layout {
 
 .app-minimal-shell__logo {
   display: block;
-  margin: var(--spacing-large) auto;
+  margin: var(--spacing-lg) auto;
   max-width: 16em;
+}
+
+.app-page-section {
+  margin-bottom: var(--spacing);
+  margin-top: var(--spacing);
+}
+
+.app-page-section-actions {
+  display: grid;
+  grid-gap: var(--spacing-sm);
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    line-height: 2em;
+    text-align: center;
+  }
 }
