@@ -31,6 +31,11 @@ export const APP_ROUTES: Routes = [
         runGuardsAndResolvers: 'always',
       },
       {
+        path: 'settings',
+        loadChildren: () => import('./features/settings').then(m => m.SettingsModule),
+        runGuardsAndResolvers: 'always',
+      },
+      {
         path: 'sandbox',
         loadChildren: () => import('./features/sandbox').then(m => m.SandboxFeatureModule),
         runGuardsAndResolvers: 'always',
