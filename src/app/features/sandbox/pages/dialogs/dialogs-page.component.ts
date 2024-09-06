@@ -10,8 +10,6 @@ import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-d
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogsPageComponent extends BasePageComponent {
-  @ViewChild('dialogContainer', { read: ViewContainerRef, static: true }) viewContainerRef!: ViewContainerRef;
-
   constructor(
     private readonly dialogService: ModalDialogService,
     private vcr: ViewContainerRef,
@@ -20,6 +18,7 @@ export class DialogsPageComponent extends BasePageComponent {
   }
 
   public openConfirmDialog() {
+    debugger;
     const dialogConfig: DialogConfiguration = {
       title: 'GENERIC_DIALOG.CONFIRM',
       description: 'Are you sure you want perform the action?',
