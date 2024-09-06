@@ -17,6 +17,9 @@
         ]
       }
     ],
+    "selector-max-type": null,
+    "alpha-value-notation": null,
+    "color-function-notation": null,
     "custom-property-empty-line-before": null,
     "function-no-unknown": null,
     "import-notation": null

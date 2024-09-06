@@ -15,7 +15,7 @@
   flex-grow: 1;
   height: 100%;
   margin-bottom: var(--spacing-lg);
-  overflow: hidden;
+  overflow-y: auto;
 
   .card__title {
     @extend %typo-title;

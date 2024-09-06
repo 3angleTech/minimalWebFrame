@@ -2,57 +2,90 @@
   display: block;
 }
 
-td:nth-child(1) {
-  width: 180px;
+.demo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: var(--spacing-lg);
+
+  td:nth-child(1) {
+    width: 250px;
+  }
+
+  /* Target the second column in all rows */
+  td:nth-child(2) {
+    width: 300px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  td h1,
+  td h2,
+  td h3,
+  td p,
+  td button {
+    margin: 0;
+  }
+
 }
 
-/* Target the second column in all rows */
-td:nth-child(2) {
-  width: 300px;
+.demo-table.table-text {
+  .text-dark-enhanced {
+    color: var(--color-text-dark-enhanced);
+  }
+
+  .text-dark {
+    color: var(--color-text-dark);
+  }
+
+  .text-dark-disabled {
+    color: var(--color-text-dark-disabled);
+  }
+
+  .text-light-enhanced {
+    color: var(--color-text-light-enhanced);
+    background-color: rgb(0, 0, 0);
+  }
+
+  .text-light {
+    color: var(--color-text-light);
+    background-color: rgb(0, 0, 0);
+  }
+
+  .text-light-disabled {
+    color: var(--color-text-light-disabled);
+    background-color: rgb(0, 0, 0);
+  }
 }
 
-.table--spacing td {
+.demo-table.table--spacing td {
   div {
     height: 19px;
+    background-color: #ffc0cb;
+  }
+
+  .spacing-lg {
+    width: var(--spacing-lg);
+  }
+
+  .spacing {
+    width: var(--spacing);
+    background-color: pink;
+  }
+
+  .spacing-sm {
+    width: var(--spacing-sm);
     background-color: pink;
   }
 }
 
-.spacing-lg {
-  width: var(--spacing-lg);
+.demo-table.table--typography {
+  td:nth-child(1) div:nth-child(1) {
+    margin-bottom: var(--spacing-sm);
+  }
 }
 
-.spacing {
-  width: var(--spacing);
-  background-color: pink;
-}
-
-.spacing-sm {
-  width: var(--spacing-sm);
-  background-color: pink;
-}
-
-.typo-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.typo-table th,
-.typo-table td {
-  padding: 10px;
-  text-align: left;
-}
-
-.class-name {
-  font-family: monospace;
-  color: #555;
-}
-
-.typo-table td h1,
-.typo-table td h2,
-.typo-table td h3,
-.typo-table td p,
-.typo-table td button {
-  margin: 0;
-}
