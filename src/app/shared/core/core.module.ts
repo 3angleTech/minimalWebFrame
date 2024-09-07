@@ -16,7 +16,7 @@ import { ContextService, IContextService } from './services/context.service';
 import { IJsonConverterService, JsonConverterService } from './services/json-converter.service';
 import { INavigationService, NavigationService } from './services/navigation.service';
 import { INotificationService, NotificationService } from './services/notification.service';
-import { ITranslateService, TranslateService } from './services/translate.service';
+import { TranslateService } from './services/translate.service';
 import { IURIService, UriService } from './services/uri.service';
 import { IWebRequestService } from './services/web-request.interface';
 import { WebRequestService } from './services/web-request.service';
@@ -27,10 +27,7 @@ const SERVICES: Provider[] = [
     provide: IContextService,
     useClass: ContextService,
   },
-  {
-    provide: ITranslateService,
-    useClass: TranslateService,
-  },
+  TranslateService,
   {
     provide: IJsonConverterService,
     useClass: JsonConverterService,

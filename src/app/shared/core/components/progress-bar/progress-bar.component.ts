@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges } from '@angular/core';
-import { ITranslateService } from '~shared/core/services/translate.service';
+import { TranslateService } from '~shared/core/services/translate.service';
 
 @Component({
   selector: 'app-progress-bar',
@@ -24,7 +24,7 @@ export class ProgressBarComponent implements OnChanges {
   public readonly ariaRole: string = 'progressbar';
 
   constructor(
-    public readonly translateService: ITranslateService,
+    public readonly translateService: TranslateService,
   ) {
   }
 

@@ -1,4 +1,4 @@
-import { Injectable, InjectionToken } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TranslateService as UpstreamTranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
@@ -8,8 +8,6 @@ export interface ITranslateService {
   // eslint-disable-next-line @typescript-eslint/ban-types
   translate(key: string | string[], params?: Object | undefined): string;
 }
-
-export const ITranslateService = new InjectionToken('ITranslateService');
 
 @Injectable()
 export class TranslateService implements ITranslateService {
