@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="app-page-section app-form--simple">
-  <h1>{{  'ACCOUNT_FEATURE.LOGIN_PAGE.PAGE_TITLE' | translate }}</h1>
+  <h2>{{  'ACCOUNT_FEATURE.LOGIN_PAGE.PAGE_TITLE' | translate }}</h2>
 
   <app-form-alerts [alerts]="loginFormAlerts"></app-form-alerts>
 
@@ -24,7 +24,7 @@
   </label>
 
   <div class="app-page-section-actions">
-    <a routerLink="/account/forgot-password">
+    <a class="forgot-password"routerLink="/account/forgot-password">
       {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.FORGOT_PASSWORD' | translate }}
     </a>
 

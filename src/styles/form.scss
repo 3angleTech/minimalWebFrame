@@ -1,4 +1,5 @@
 @import "theme";
+@import "typography";
 
 .app-form--simple {
   border: 1px solid app-get-color($app-foreground-colors, dividers);
@@ -16,6 +17,8 @@
 }
 
 .app-form__element--block {
+  @extend %typo-body;
+
   display: block;
   margin-bottom: var(--spacing);
   margin-top: var(--spacing);
