@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { IWebRequestService, RequestConfig, RequestContentType } from './web-request.interface';
-import { IURIService } from './uri.service';
+import { UriService } from './uri.service';
 
 @Injectable()
 export class WebRequestService implements IWebRequestService {
   constructor(
-    private readonly uriService: IURIService,
+    private readonly uriService: UriService,
     private readonly http: HttpClient,
   ) { }
 

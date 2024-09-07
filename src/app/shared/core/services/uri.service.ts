@@ -28,7 +28,6 @@ export interface IURIService {
     urlParameters: Record<string, UrlParameterValueType> | undefined,
   ): string;
 }
-export const IURIService = new InjectionToken('IURIService');
 
 @Injectable()
 export class UriService implements IURIService {
