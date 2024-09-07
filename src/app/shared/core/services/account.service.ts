@@ -21,8 +21,6 @@ export interface IAccountService {
   resetPassword(payload: AccountResetPasswordPayload): Observable<void>;
 }
 
-export const IAccountService = new InjectionToken('IAccountService');
-
 @Injectable()
 export class AccountService implements IAccountService {
   constructor(

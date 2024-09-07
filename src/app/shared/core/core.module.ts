@@ -9,7 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
 import { FormAlertsComponent } from './components/form-messages/form-alerts.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
-import { AccountService, IAccountService } from './services/account.service';
+import { AccountService } from './services/account.service';
 import { AuthInterceptor } from './services/auth-interceptor.service';
 import { AuthService, IAuthService } from './services/auth.service';
 import { ContextService, IContextService } from './services/context.service';
@@ -44,10 +44,7 @@ const SERVICES: Provider[] = [
     provide: INotificationService,
     useClass: NotificationService,
   },
-  {
-    provide: IAccountService,
-    useClass: AccountService,
-  },
+  AccountService,
   {
     provide: INavigationService,
     useClass: NavigationService,
