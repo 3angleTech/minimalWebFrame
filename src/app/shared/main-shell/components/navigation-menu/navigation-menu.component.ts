@@ -2,7 +2,7 @@
  * Provides the main navigation menu.
  */
 import { Component, OnInit } from '@angular/core';
-import { IContextService, User } from '~shared/core';
+import { ContextService, User } from '~shared/core';
 import { NavigationMenuNode, NavigationMenuStructure } from './navigation-menu-node-structure';
 import { navigationMenuDefinition } from './navigation-menu-config';
 import { Router } from '@angular/router';
@@ -18,7 +18,7 @@ export class NavigationMenuComponent implements OnInit {
   private readonly navigationStructure: NavigationMenuStructure;
 
   constructor(
-    private readonly contextService: IContextService,
+    private readonly contextService: ContextService,
     private readonly router: Router,
   ) {
     this.navigationStructure = new NavigationMenuStructure(navigationMenuDefinition);

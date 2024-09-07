@@ -1,4 +1,4 @@
-import { Injectable, InjectionToken } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
 
 import { User } from '../data/user.do';
@@ -12,8 +12,6 @@ export interface IContextService {
   isAuthenticated(): boolean;
   refreshUser(): Promise<void>;
 }
-
-export const IContextService = new InjectionToken('IContextService');
 
 /**
  * Service holding the state of the application.

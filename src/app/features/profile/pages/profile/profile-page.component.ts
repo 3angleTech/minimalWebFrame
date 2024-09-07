@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IContextService, User } from '~shared/core';
+import { ContextService, User } from '~shared/core';
 import { BasePageComponent } from '~shared/core/components/base-page/base-page.component';
 
 @Component({
@@ -11,7 +11,7 @@ export class ProfileComponent extends BasePageComponent implements OnInit {
   public currentUser!: User | undefined;
 
   constructor(
-    private readonly contextService: IContextService,
+    private readonly contextService: ContextService,
   ) {
     super();
   }

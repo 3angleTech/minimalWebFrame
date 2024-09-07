@@ -12,7 +12,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { AccountService } from './services/account.service';
 import { AuthInterceptor } from './services/auth-interceptor.service';
 import { AuthService } from './services/auth.service';
-import { ContextService, IContextService } from './services/context.service';
+import { ContextService } from './services/context.service';
 import { JsonConverterService } from './services/json-converter.service';
 import { NavigationService } from './services/navigation.service';
 import { NotificationService } from './services/notification.service';
@@ -22,10 +22,7 @@ import { WebRequestService } from './services/web-request.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const SERVICES: Provider[] = [
-  {
-    provide: IContextService,
-    useClass: ContextService,
-  },
+  ContextService,
   TranslateService,
   JsonConverterService,
   UriService,
