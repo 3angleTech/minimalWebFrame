@@ -24,6 +24,10 @@
   </label>
 
   <div class="app-page-section-actions">
+    <a routerLink="/account/forgot-password">
+      {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.FORGOT_PASSWORD' | translate }}
+    </a>
+
     <button [disabled]="loginForm.disabled || loginForm.invalid" class="app-button--with-icon" name="submit" type="submit">
       <fa-icon [icon]="['fas', 'lock-open']"></fa-icon>
       <span class="text">{{ 'ACCOUNT_FEATURE.LOGIN_PAGE.SUBMIT' | translate }}</span>
@@ -40,8 +44,5 @@
       </span>
     </button>
 
-    <a routerLink="/account/forgot-password">
-      {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.FORGOT_PASSWORD' | translate }}
-    </a>
   </div>
 </aside>
