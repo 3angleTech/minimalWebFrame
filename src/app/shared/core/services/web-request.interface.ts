@@ -1,4 +1,3 @@
-import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ServerApi } from '../enums/server-api.enum';
@@ -54,4 +53,3 @@ export interface IWebRequestService {
    */
   delete<T>(config: RequestConfig): Observable<T>;
 }
-export const IWebRequestService = new InjectionToken('IWebRequestService');

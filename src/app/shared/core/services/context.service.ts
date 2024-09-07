@@ -3,8 +3,8 @@ import { BehaviorSubject, lastValueFrom } from 'rxjs';
 
 import { User } from '../data/user.do';
 import { ServerApi } from '../enums/server-api.enum';
-import { IWebRequestService } from './web-request.interface';
 import { JsonConverterService } from './json-converter.service';
+import { WebRequestService } from './web-request.service';
 
 export interface IContextService {
   currentUser: BehaviorSubject<User | undefined>;
@@ -24,7 +24,7 @@ export class ContextService implements IContextService {
     new BehaviorSubject<User | undefined>(undefined);
 
   constructor(
-    private readonly webRequest: IWebRequestService,
+    private readonly webRequest: WebRequestService,
     private readonly jsonConverter: JsonConverterService,
   ) {
   }

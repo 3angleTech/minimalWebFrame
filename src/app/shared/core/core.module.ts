@@ -18,7 +18,6 @@ import { NavigationService } from './services/navigation.service';
 import { INotificationService, NotificationService } from './services/notification.service';
 import { TranslateService } from './services/translate.service';
 import { UriService } from './services/uri.service';
-import { IWebRequestService } from './services/web-request.interface';
 import { WebRequestService } from './services/web-request.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -30,10 +29,7 @@ const SERVICES: Provider[] = [
   TranslateService,
   JsonConverterService,
   UriService,
-  {
-    provide: IWebRequestService,
-    useClass: WebRequestService,
-  },
+  WebRequestService,
   {
     provide: INotificationService,
     useClass: NotificationService,

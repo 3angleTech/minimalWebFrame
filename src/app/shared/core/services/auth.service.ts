@@ -1,9 +1,10 @@
 import { HttpParams } from '@angular/common/http';
-import { Injectable, InjectionToken } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ServerApi } from '../enums/server-api.enum';
-import { IWebRequestService, RequestContentType } from './web-request.interface';
+import { RequestContentType } from './web-request.interface';
+import { WebRequestService } from './web-request.service';
 
 export interface IAccountCredentials {
   username: string;
@@ -24,7 +25,7 @@ export interface IAuthService {
 @Injectable()
 export class AuthService implements IAuthService {
   constructor(
-    private readonly webRequest: IWebRequestService,
+    private readonly webRequest: WebRequestService,
   ) {
   }
 

@@ -3,8 +3,8 @@ import { map, mergeMap, Observable } from 'rxjs';
 
 import { User } from '../data/user.do';
 import { ServerApi } from '../enums/server-api.enum';
-import { IWebRequestService } from './web-request.interface';
 import { JsonConverterService } from './json-converter.service';
+import { WebRequestService } from './web-request.service';
 
 export interface AccountForgotPasswordPayload {
   email: string;
@@ -24,7 +24,7 @@ export interface IAccountService {
 @Injectable()
 export class AccountService implements IAccountService {
   constructor(
-    private readonly webRequest: IWebRequestService,
+    private readonly webRequest: WebRequestService,
     private readonly jsonConverter: JsonConverterService,
   ) {
   }
