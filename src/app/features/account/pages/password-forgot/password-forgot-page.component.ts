@@ -6,9 +6,7 @@ import {
   AccountService,
   FormAlert,
   getFormAlertsFromHttpErrorResponse,
-  IAuthService,
   INavigationService,
-  INotificationService,
   PageUrl,
 } from '~shared/core';
 
