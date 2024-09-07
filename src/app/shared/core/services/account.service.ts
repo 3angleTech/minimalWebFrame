@@ -1,11 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { mergeMap, Observable } from 'rxjs';
 
 import { User } from '../data/user.do';
 import { ServerApi } from '../enums/server-api.enum';
-import { IAccountService } from './account.interface';
 import { IJsonConverterService } from './json-converter.interface';
 import { IWebRequestService } from './web-request.interface';
+
+export interface IAccountService {
+  getCurrentUser(): Observable<User>;
+}
+
+export const IAccountService = new InjectionToken('IAccountService');
 
 @Injectable()
 export class AccountService implements IAccountService {
