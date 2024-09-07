@@ -15,7 +15,7 @@ import { AuthService } from './services/auth.service';
 import { ContextService, IContextService } from './services/context.service';
 import { JsonConverterService } from './services/json-converter.service';
 import { NavigationService } from './services/navigation.service';
-import { INotificationService, NotificationService } from './services/notification.service';
+import { NotificationService } from './services/notification.service';
 import { TranslateService } from './services/translate.service';
 import { UriService } from './services/uri.service';
 import { WebRequestService } from './services/web-request.service';
@@ -30,10 +30,7 @@ const SERVICES: Provider[] = [
   JsonConverterService,
   UriService,
   WebRequestService,
-  {
-    provide: INotificationService,
-    useClass: NotificationService,
-  },
+  NotificationService,
   AccountService,
   NavigationService,
   AuthService,

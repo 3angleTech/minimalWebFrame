@@ -1,18 +1,17 @@
-import { Injectable, InjectionToken } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TranslateService } from './translate.service';
 
 export interface INotificationService {
   // eslint-disable-next-line @typescript-eslint/ban-types
   showNotification(key: string | string[], params?: Object | undefined): void;
 }
-export const INotificationService = new InjectionToken('INotificationService');
 
 @Injectable()
 export class NotificationService implements INotificationService {
 
   constructor(
     private readonly translateService: TranslateService,
-  ) {}
+  ) { }
 
   /**
    * TODO: Properly implement the notification service.
