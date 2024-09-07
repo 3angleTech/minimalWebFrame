@@ -1,0 +1,22 @@
+h2 {
+  padding-bottom: var(--spacing);
+}
+
+.app-form--simple {
+  width: 350px;
+  padding: calc(var(--spacing-lg) * 2);
+}
+
+.app-page-section-actions {
+  display: flex;
+  flex-direction: column;
+
+  .forgot-password {
+    display: flex;
+    text-decoration: none;
+    justify-content: flex-end;
+    font-size: var(--typo-scale-body-small);
+  }
+
+}
+

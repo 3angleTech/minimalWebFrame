@@ -3,7 +3,10 @@
 // Charcoal
 :host {
   --nav-primary-color: #333333; // charcoal grey background
-  --nav-primary-color-2: #2C2C2C; // darker shade for secondary elements
+  --nav-primary-color-hover: #2C2C2C; // slightly darker than primary color
+  --nav-primary-color-2: #2F2F2F; // darker shade for secondary elements
+  --nav-primary-color-2-hover: #292929; // slightly darker than primary color-2
+
   --nav-separator-color: rgba(255 255 255 0.2); // subtle white separators
   --nav-menu-item-color: #B0BEC5; // soft grey for menu items
   --nav-menu-item-icon-color: rgba(255 255 255 0.6); // less intense white for icons
@@ -58,12 +61,23 @@ nav {
 .navigation-menu__section {
   background-color: var(--nav-primary-color);
   color: var(--nav-menu-item-color);
+
+  :hover {
+    background-color: var(--nav-primary-color-hover);
+  }
 }
 
 .navigation-menu__sub-section {
   background-color: var(--nav-primary-color);
   color: var(--nav-menu-item-color);
-  padding-left: 38px;
+
+  .navigation-menu-item {
+    padding-left: 62px; // 38px + 24px
+  }
+
+  :hover {
+    background-color: var(--nav-primary-color-2-hover);
+  }
 }
 
 
@@ -94,6 +108,11 @@ nav {
 
   .navigation-menu__sub-section {
     background-color: var(--nav-primary-color-2);
+
+    /* stylelint-disable-next-line max-nesting-depth */
+    .navigation-menu-item {
+      padding-left: 58px; // 38px + 24px
+    }
   }
 
   .navigation-menu-item {

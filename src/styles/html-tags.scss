@@ -3,3 +3,21 @@ body {
   font-family: Roboto, sans-serif;
   margin: 0;
 }
+
+h1 {
+  font-size: var(--typo-scale-title-large);
+  font-weight: var(--font-weight-strong);
+  margin: 0;
+}
+
+h2 {
+  font-size: var(--typo-scale-title);
+  font-weight: var(--font-weight-strong);
+  margin: 0;
+}
+
+h3 {
+  font-size: var(--typo-scale-subtitle);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
