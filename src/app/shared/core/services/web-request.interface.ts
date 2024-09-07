@@ -2,7 +2,7 @@ import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ServerApi } from '../enums/server-api.enum';
-import { QueryParameterValueType, UrlParameterValueType } from './uri.interface';
+import { QueryParameterValueType, UrlParameterValueType } from './uri.service';
 
 /**
  * Enum containing all the supported content types
