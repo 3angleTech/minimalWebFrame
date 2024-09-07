@@ -10,10 +10,10 @@
     @if (configuration.actions) {
 
       <div class="dialog__actions">
-        <button (click)="closeClickHandler()">
+        <button class="app-button" (click)="closeClickHandler()">
           {{ configuration.actions.cancelButton | translate }}
         </button>
-        <button (click)="acceptClickHandler()">
+        <button class="app-button" (click)="acceptClickHandler()">
           {{ configuration.actions.acceptButton | translate }}
         </button>
       </div>

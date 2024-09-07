@@ -7,11 +7,13 @@ import { RouterModule } from '@angular/router';
 import { CoreModule } from '~shared/core';
 
 import { MinimalShellLayoutComponent } from './components/minimal-shell-layout/minimal-shell-layout.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     RouterModule,
     CoreModule,
+    FontAwesomeModule,
   ],
   declarations: [
     MinimalShellLayoutComponent,

@@ -8,6 +8,7 @@ import { CoreModule } from '~shared/core';
 
 import { MainShellLayoutComponent } from './components/main-shell-layout/main-shell-layout.component';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const COMPONENTS = [
   NavigationMenuComponent,
@@ -18,6 +19,7 @@ const COMPONENTS = [
   imports: [
     RouterModule,
     CoreModule,
+    FontAwesomeModule,
   ],
   declarations: [
     COMPONENTS,

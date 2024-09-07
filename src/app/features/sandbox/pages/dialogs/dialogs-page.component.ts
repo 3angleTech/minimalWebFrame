@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewContainerRef } from '@angular/core';
 import { BasePageComponent } from '~shared/core/components/base-page/base-page.component';
 import { ModalDialogComponent, DialogConfiguration } from '~shared/core/components/modal-dialog/modal-dialog.component';
 import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-dialog.service';
@@ -12,13 +12,12 @@ import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-d
 export class DialogsPageComponent extends BasePageComponent {
   constructor(
     private readonly dialogService: ModalDialogService,
-    private vcr: ViewContainerRef,
+    private readonly vcr: ViewContainerRef,
   ) {
     super();
   }
 
   public openConfirmDialog() {
-    debugger;
     const dialogConfig: DialogConfiguration = {
       title: 'GENERIC_DIALOG.CONFIRM',
       description: 'Are you sure you want perform the action?',
@@ -27,12 +26,10 @@ export class DialogsPageComponent extends BasePageComponent {
     const dialogRef = this.dialogService.open(this.vcr, ModalDialogComponent, dialogConfig);
 
     dialogRef.instance.acceptEvent.subscribe(() => {
-      console.log('Accepted');
       this.dialogService.close(dialogRef);
     });
 
     dialogRef.instance.closeEvent.subscribe(() => {
-      console.log('Closed');
       this.dialogService.close(dialogRef);
     });
   }
@@ -47,12 +44,10 @@ export class DialogsPageComponent extends BasePageComponent {
     const dialogRef = this.dialogService.open(this.vcr, ModalDialogComponent, dialogConfig);
 
     dialogRef.instance.acceptEvent.subscribe(() => {
-      console.log('Accepted');
       this.dialogService.close(dialogRef);
     });
 
     dialogRef.instance.closeEvent.subscribe(() => {
-      console.log('Closed');
       this.dialogService.close(dialogRef);
     });
   }
@@ -67,12 +62,10 @@ export class DialogsPageComponent extends BasePageComponent {
     const dialogRef = this.dialogService.open(this.vcr, ModalDialogComponent, dialogConfig);
 
     dialogRef.instance.acceptEvent.subscribe(() => {
-      console.log('Accepted');
       this.dialogService.close(dialogRef);
     });
 
     dialogRef.instance.closeEvent.subscribe(() => {
-      console.log('Closed');
       this.dialogService.close(dialogRef);
     });
   }

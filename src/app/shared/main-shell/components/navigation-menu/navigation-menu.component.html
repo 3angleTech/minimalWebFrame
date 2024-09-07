@@ -10,7 +10,7 @@
     >
       <div class="navigation-menu-item"
         [ngClass]="{'navigation-menu-item--active': isActive(section)}">
-        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">{{ section.icon }}</i>
+        <fa-icon [icon]="['fas' , section.icon || 'question']" aria-hidden="true"></fa-icon>
         <a [routerLink]="section.route">{{ section.label }}</a>
       </div>
 

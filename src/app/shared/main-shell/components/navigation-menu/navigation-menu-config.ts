@@ -5,13 +5,13 @@ export const navigationMenuDefinition: INavigationMenuNodeDefinition = {
   route: '/',
   children: [
     {
-      icon: 'home',
+      icon: 'house',
       label: 'Home',
       route: '/home',
       children: [],
     },
     {
-      icon: 'assessment',
+      icon: 'chart-line',
       label: 'Reports',
       route: '/reports',
       children: [
@@ -33,19 +33,19 @@ export const navigationMenuDefinition: INavigationMenuNodeDefinition = {
       ],
     },
     {
-      icon: 'person',
+      icon: 'user',
       label: 'Profile',
       route: '/profile',
       children: [],
     },
     {
-      icon: 'settings',
+      icon: 'cogs',
       label: 'Settings',
       route: '/settings',
       children: [],
     },
     {
-      icon: 'construction',
+      icon: 'tools',
       label: 'Sandbox',
       route: '/sandbox',
       children: [

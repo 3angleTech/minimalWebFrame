@@ -4,7 +4,6 @@
 // @see http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
 // @see http://getbem.com/introduction/
 
-@import "material-icons/iconfont/material-icons.css";
 @import "global-variables";
 @import "typography";
 @import "html-tags";
@@ -12,8 +11,3 @@
 @import "page";
 @import "form";
 @import "button";
-
-html,
-body {
-  font-family: Roboto, sans-serif;
-}

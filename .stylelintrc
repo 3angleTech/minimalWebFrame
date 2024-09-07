@@ -13,7 +13,8 @@
       {
         "ignoreTypes": [
           "router-outlet",
-          "/^app-/"
+          "/^app-/",
+          "fa-icon"
         ]
       }
     ],

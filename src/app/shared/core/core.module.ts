@@ -28,6 +28,7 @@ import { IURIService } from './services/uri.interface';
 import { UriService } from './services/uri.service';
 import { IWebRequestService } from './services/web-request.interface';
 import { WebRequestService } from './services/web-request.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const SERVICES: Provider[] = [
   {
@@ -72,6 +73,7 @@ const MODULES = [
   CommonModule,
   ReactiveFormsModule,
   TranslateModule,
+  FontAwesomeModule,
 ];
 
 const COMPONENTS = [
