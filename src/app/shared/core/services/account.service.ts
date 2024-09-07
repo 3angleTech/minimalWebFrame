@@ -1,10 +1,10 @@
-import { Injectable, InjectionToken } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { map, mergeMap, Observable } from 'rxjs';
 
 import { User } from '../data/user.do';
 import { ServerApi } from '../enums/server-api.enum';
 import { IWebRequestService } from './web-request.interface';
-import { IJsonConverterService } from './json-converter.service';
+import { JsonConverterService } from './json-converter.service';
 
 export interface AccountForgotPasswordPayload {
   email: string;
@@ -25,7 +25,7 @@ export interface IAccountService {
 export class AccountService implements IAccountService {
   constructor(
     private readonly webRequest: IWebRequestService,
-    private readonly jsonConverter: IJsonConverterService,
+    private readonly jsonConverter: JsonConverterService,
   ) {
   }
 

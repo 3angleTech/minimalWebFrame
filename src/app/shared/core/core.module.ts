@@ -13,7 +13,7 @@ import { AccountService } from './services/account.service';
 import { AuthInterceptor } from './services/auth-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { ContextService, IContextService } from './services/context.service';
-import { IJsonConverterService, JsonConverterService } from './services/json-converter.service';
+import { JsonConverterService } from './services/json-converter.service';
 import { NavigationService } from './services/navigation.service';
 import { INotificationService, NotificationService } from './services/notification.service';
 import { TranslateService } from './services/translate.service';
@@ -28,10 +28,7 @@ const SERVICES: Provider[] = [
     useClass: ContextService,
   },
   TranslateService,
-  {
-    provide: IJsonConverterService,
-    useClass: JsonConverterService,
-  },
+  JsonConverterService,
   {
     provide: IURIService,
     useClass: UriService,
