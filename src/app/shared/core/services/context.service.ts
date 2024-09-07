@@ -3,8 +3,8 @@ import { BehaviorSubject, lastValueFrom } from 'rxjs';
 
 import { User } from '../data/user.do';
 import { ServerApi } from '../enums/server-api.enum';
-import { IJsonConverterService } from './json-converter.interface';
 import { IWebRequestService } from './web-request.interface';
+import { IJsonConverterService } from './json-converter.service';
 
 export interface IContextService {
   currentUser: BehaviorSubject<User | undefined>;

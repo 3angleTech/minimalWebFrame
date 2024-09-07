@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IJsonConverterService, IWebRequestService, ServerApi } from '~shared/core';
+import { IWebRequestService, ServerApi } from '~shared/core';
 import { AccountForgotPasswordPayload, AccountResetPasswordPayload, IAccountService } from './account.interface';
 
 @Injectable()
 export class AccountService implements IAccountService {
-
   constructor(
     private readonly webRequest: IWebRequestService,
-    private readonly jsonConverter: IJsonConverterService,
   ) { }
 
   public forgotPassword(payload: AccountForgotPasswordPayload): Observable<void> {
