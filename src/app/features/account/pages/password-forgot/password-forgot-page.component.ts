@@ -6,7 +6,7 @@ import {
   AccountService,
   FormAlert,
   getFormAlertsFromHttpErrorResponse,
-  INavigationService,
+  NavigationService,
   PageUrl,
 } from '~shared/core';
 
@@ -27,7 +27,7 @@ export class PasswordForgotPageComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: NonNullableFormBuilder,
-    private readonly navigationService: INavigationService,
+    private readonly navigationService: NavigationService,
     private readonly accountService: AccountService,
   ) {}
 

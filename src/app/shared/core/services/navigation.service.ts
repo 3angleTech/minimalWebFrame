@@ -1,4 +1,4 @@
-import { Injectable, InjectionToken } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { NavigationExtras, Router, UrlTree } from '@angular/router';
 
 /**
@@ -13,10 +13,9 @@ export interface INavigationService {
    */
   navigateToUrl(url: string | UrlTree, extras?: NavigationExtras): void;
 }
-export const INavigationService = new InjectionToken('INavigationService');
 
 @Injectable()
-export class NavigationService implements INavigationService {
+export class NavigationService implements NavigationService {
   constructor(
     private readonly router: Router,
   ) {}

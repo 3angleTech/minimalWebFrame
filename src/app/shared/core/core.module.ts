@@ -14,7 +14,7 @@ import { AuthInterceptor } from './services/auth-interceptor.service';
 import { AuthService, IAuthService } from './services/auth.service';
 import { ContextService, IContextService } from './services/context.service';
 import { IJsonConverterService, JsonConverterService } from './services/json-converter.service';
-import { INavigationService, NavigationService } from './services/navigation.service';
+import { NavigationService } from './services/navigation.service';
 import { INotificationService, NotificationService } from './services/notification.service';
 import { TranslateService } from './services/translate.service';
 import { IURIService, UriService } from './services/uri.service';
@@ -45,10 +45,7 @@ const SERVICES: Provider[] = [
     useClass: NotificationService,
   },
   AccountService,
-  {
-    provide: INavigationService,
-    useClass: NavigationService,
-  },
+  NavigationService,
   {
     provide: IAuthService,
     useClass: AuthService,

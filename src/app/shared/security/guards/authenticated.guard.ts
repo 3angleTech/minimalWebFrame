@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { IContextService, INavigationService, PageUrl } from '~shared/core';
+import { IContextService, NavigationService, PageUrl } from '~shared/core';
 
 @Injectable()
 export class AuthenticatedGuard {
   constructor(
     private readonly contextService: IContextService,
-    private readonly navigationService: INavigationService,
+    private readonly navigationService: NavigationService,
 
   ) {}
 

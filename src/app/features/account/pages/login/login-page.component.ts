@@ -7,8 +7,7 @@ import {
   getFormAlertsFromHttpErrorResponse,
   IAccountCredentials,
   IAuthService,
-  INavigationService,
-  INotificationService,
+  NavigationService,
   PageUrl,
 } from '~shared/core';
 
@@ -29,9 +28,8 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: NonNullableFormBuilder,
-    private readonly notificationService: INotificationService,
     private readonly authService: IAuthService,
-    private readonly navigationService: INavigationService,
+    private readonly navigationService: NavigationService,
   ) {}
 
   public ngOnInit(): void {
