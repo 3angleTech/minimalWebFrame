@@ -1,7 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { TranslateService as UpstreamTranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { ITranslateService } from './translate.interface';
+
+export interface ITranslateService {
+  changeLanguage(lang: string): Observable<void>;
+
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  translate(key: string | string[], params?: Object | undefined): string;
+}
+
+export const ITranslateService = new InjectionToken('ITranslateService');
 
 @Injectable()
 export class TranslateService implements ITranslateService {
@@ -18,5 +26,4 @@ export class TranslateService implements ITranslateService {
   public changeLanguage(lang: string): Observable<void> {
     return this.translateService.use(lang);
   }
-
 }

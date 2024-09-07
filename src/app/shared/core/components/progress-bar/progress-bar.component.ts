@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges } from '@angular/core';
-import { ITranslateService } from '~shared/core/services/translate.interface';
+import { ITranslateService } from '~shared/core/services/translate.service';
 
 @Component({
   selector: 'app-progress-bar',
