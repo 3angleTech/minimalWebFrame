@@ -11,7 +11,7 @@ import { FormAlertsComponent } from './components/form-messages/form-alerts.comp
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { AccountService } from './services/account.service';
 import { AuthInterceptor } from './services/auth-interceptor.service';
-import { AuthService, IAuthService } from './services/auth.service';
+import { AuthService } from './services/auth.service';
 import { ContextService, IContextService } from './services/context.service';
 import { IJsonConverterService, JsonConverterService } from './services/json-converter.service';
 import { NavigationService } from './services/navigation.service';
@@ -46,10 +46,7 @@ const SERVICES: Provider[] = [
   },
   AccountService,
   NavigationService,
-  {
-    provide: IAuthService,
-    useClass: AuthService,
-  },
+  AuthService,
 ];
 
 const MODULES = [

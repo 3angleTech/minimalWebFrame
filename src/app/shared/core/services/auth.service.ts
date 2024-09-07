@@ -21,8 +21,6 @@ export interface IAuthService {
   logout(): Observable<unknown>;
 }
 
-export const IAuthService = new InjectionToken('IAuthService');
-
 @Injectable()
 export class AuthService implements IAuthService {
   constructor(

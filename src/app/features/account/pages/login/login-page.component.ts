@@ -3,10 +3,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 
 import {
+  AuthService,
   FormAlert,
   getFormAlertsFromHttpErrorResponse,
   IAccountCredentials,
-  IAuthService,
   NavigationService,
   PageUrl,
 } from '~shared/core';
@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: NonNullableFormBuilder,
-    private readonly authService: IAuthService,
+    private readonly authService: AuthService,
     private readonly navigationService: NavigationService,
   ) {}
 

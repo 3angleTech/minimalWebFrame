@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { catchError, finalize, Observable, switchMap, throwError } from 'rxjs';
 
 import { ServerApi } from '../enums/server-api.enum';
-import { IAuthService } from './auth.service';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   private isTokenRefreshing = false;
 
   constructor(
-    private readonly authService: IAuthService,
+    private readonly authService: AuthService,
   ) { }
 
   public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
