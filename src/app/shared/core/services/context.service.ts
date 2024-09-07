@@ -1,11 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
 
 import { User } from '../data/user.do';
 import { ServerApi } from '../enums/server-api.enum';
-import { IContextService } from './context.interface';
 import { IJsonConverterService } from './json-converter.interface';
 import { IWebRequestService } from './web-request.interface';
+
+export interface IContextService {
+  currentUser: BehaviorSubject<User | undefined>;
+
+  isAuthenticated(): boolean;
+  refreshUser(): Promise<void>;
+}
+
+export const IContextService = new InjectionToken('IContextService');
 
 /**
  * Service holding the state of the application.

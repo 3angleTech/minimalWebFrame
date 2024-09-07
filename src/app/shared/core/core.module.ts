@@ -12,8 +12,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { AccountService, IAccountService } from './services/account.service';
 import { AuthInterceptor } from './services/auth-interceptor.service';
 import { AuthService, IAuthService } from './services/auth.service';
-import { IContextService } from './services/context.interface';
-import { ContextService } from './services/context.service';
+import { ContextService, IContextService } from './services/context.service';
 import { IJsonConverterService } from './services/json-converter.interface';
 import { JsonConverterService } from './services/json-converter.service';
 import { INavigationService } from './services/navigation.interface';

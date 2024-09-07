@@ -9,7 +9,6 @@ export * from './enums/page-url.enum';
 export * from './enums/server-api.enum';
 export * from './services/context.service';
 export * from './services/translate.service';
-export * from './services/context.interface';
 export * from './services/json-converter.interface';
 export * from './services/translate.interface';
 export * from './services/uri.interface';
