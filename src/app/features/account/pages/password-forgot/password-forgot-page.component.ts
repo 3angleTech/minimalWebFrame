@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 
 import {
+  AccountForgotPasswordPayload,
+  AccountService,
   FormAlert,
   getFormAlertsFromHttpErrorResponse,
   IAuthService,
@@ -9,7 +11,6 @@ import {
   INotificationService,
   PageUrl,
 } from '~shared/core';
-import { AccountForgotPasswordPayload, IAccountService } from '../../services/account.interface';
 
 interface ForgotPasswordForm {
   email: FormControl<string>;
@@ -28,10 +29,8 @@ export class PasswordForgotPageComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: NonNullableFormBuilder,
-    private readonly notificationService: INotificationService,
-    private readonly authService: IAuthService,
     private readonly navigationService: INavigationService,
-    private readonly accountService: IAccountService,
+    private readonly accountService: AccountService,
   ) {}
 
   public ngOnInit(): void {

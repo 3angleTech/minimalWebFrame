@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { FormAlert, FormAlertType, getFormAlertsFromHttpErrorResponse, INavigationService, PageUrl } from '~shared/core';
-
-import { AccountResetPasswordPayload, IAccountService } from '../../services/account.interface';
+import { AccountResetPasswordPayload, AccountService, FormAlert, FormAlertType, getFormAlertsFromHttpErrorResponse, INavigationService, PageUrl } from '~shared/core';
 
 interface ResetPasswordForm {
   newPassword: FormControl<string>;
@@ -24,7 +22,7 @@ export class PasswordResetPageComponent implements OnInit {
 
   constructor(
     private readonly navigationService: INavigationService,
-    private readonly accountService: IAccountService,
+    private readonly accountService: AccountService,
     private readonly formBuilder: NonNullableFormBuilder,
     private readonly activatedRoute: ActivatedRoute,
   ) {
