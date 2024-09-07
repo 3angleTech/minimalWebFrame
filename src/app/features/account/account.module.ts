@@ -8,8 +8,6 @@ import { LoginPageComponent } from './pages/login/login-page.component';
 import { LogoutPageComponent } from './pages/logout/logout-page.component';
 import { PasswordForgotPageComponent } from './pages/password-forgot/password-forgot-page.component';
 import { PasswordResetPageComponent } from './pages/password-reset/password-reset-page.component';
-import { IAccountService } from './services/account.interface';
-import { AccountService } from './services/account.service';
 
 const COMPONENTS = [
   AccountShellComponent,
@@ -26,12 +24,6 @@ const COMPONENTS = [
   ],
   declarations: [
     COMPONENTS,
-  ],
-  providers: [
-    {
-      provide: IAccountService,
-      useClass: AccountService,
-    },
   ],
 })
 export class AccountModule { }

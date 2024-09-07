@@ -3,13 +3,29 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ServerApi } from '../enums/server-api.enum';
-import { IAccountCredentials, IAuthService, ITokenPayload } from './auth.interface';
-import { IWebRequestService, RequestContentType } from './web-request.interface';
+import { RequestContentType } from './web-request.interface';
+import { WebRequestService } from './web-request.service';
+
+export interface IAccountCredentials {
+  username: string;
+  password: string;
+}
+
+export interface ITokenPayload {
+  accessToken: string;
+  refreshToken?: string;
+}
+
+export interface IAuthService {
+  login(credentials: IAccountCredentials): Observable<ITokenPayload>;
+  refreshToken(): Observable<ITokenPayload>;
+  logout(): Observable<unknown>;
+}
 
 @Injectable()
 export class AuthService implements IAuthService {
   constructor(
-    private readonly webRequest: IWebRequestService,
+    private readonly webRequest: WebRequestService,
   ) {
   }
 
