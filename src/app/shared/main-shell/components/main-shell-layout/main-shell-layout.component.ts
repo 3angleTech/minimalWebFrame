@@ -1,21 +1,24 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ProgressBarComponent } from '~shared/core';
+import { NavigationMenuComponent } from '../navigation-menu/navigation-menu.component';
 
 @Component({
   selector: 'app-main-shell-layout',
   styleUrls: ['./main-shell-layout.component.scss'],
   templateUrl: './main-shell-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // eslint-disable-next-line @angular-eslint/use-component-view-encapsulation
   encapsulation: ViewEncapsulation.None,
+  imports: [RouterOutlet, NavigationMenuComponent, ProgressBarComponent, AsyncPipe],
 })
 export class MainShellLayoutComponent implements OnDestroy, OnInit {
   public readonly routeIsLoading: EventEmitter<boolean> = new EventEmitter<boolean>();
   private routerEventsSubscription: Subscription | undefined;
 
-  constructor(
-    private readonly router: Router,
-  ) {}
+  private readonly router = inject(Router);
 
   public ngOnInit(): void {
     this.routerEventsSubscription = this.router.events.subscribe((routerEvent: Event): void => {

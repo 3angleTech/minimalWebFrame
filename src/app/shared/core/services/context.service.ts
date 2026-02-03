@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
 
 import { User } from '../data/user.do';
@@ -16,22 +16,18 @@ export interface IContextService {
 /**
  * Service holding the state of the application.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ContextService implements IContextService {
+  private readonly webRequest = inject(WebRequestService);
+  private readonly jsonConverter = inject(JsonConverterService);
+
   public currentUser: BehaviorSubject<User | undefined> =
     new BehaviorSubject<User | undefined>(undefined);
 
-  constructor(
-    private readonly webRequest: WebRequestService,
-    private readonly jsonConverter: JsonConverterService,
-  ) {
-  }
-
   public isAuthenticated(): boolean {
-    if (this.currentUser.value) {
-      return true;
-    }
-    return this.currentUser.value !== undefined;
+    return !!this.currentUser.value;
   }
 
   public async refreshUser(): Promise<void> {
@@ -39,6 +35,7 @@ export class ContextService implements IContextService {
       serverApi: ServerApi.AccountMe,
       skipErrorHandling: true,
     });
+
     try {
       const userObject = await lastValueFrom(userObs);
       const user: User = this.jsonConverter.deserialize(userObject, User);

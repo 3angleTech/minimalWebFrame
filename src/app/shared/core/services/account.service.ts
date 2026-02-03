@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { map, mergeMap, Observable } from 'rxjs';
 
 import { User } from '../data/user.do';
@@ -21,13 +21,12 @@ export interface IAccountService {
   resetPassword(payload: AccountResetPasswordPayload): Observable<void>;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AccountService implements IAccountService {
-  constructor(
-    private readonly webRequest: WebRequestService,
-    private readonly jsonConverter: JsonConverterService,
-  ) {
-  }
+  private readonly webRequest = inject(WebRequestService);
+  private readonly jsonConverter = inject(JsonConverterService);
 
   public getCurrentUser(): Observable<User> {
     return this.webRequest.get({

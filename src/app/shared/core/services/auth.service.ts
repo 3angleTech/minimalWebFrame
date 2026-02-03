@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ServerApi } from '../enums/server-api.enum';
@@ -22,12 +22,11 @@ export interface IAuthService {
   logout(): Observable<unknown>;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthService implements IAuthService {
-  constructor(
-    private readonly webRequest: WebRequestService,
-  ) {
-  }
+  private readonly webRequest = inject(WebRequestService);
 
   public login(credentials: IAccountCredentials): Observable<ITokenPayload> {
     const bodyData = new HttpParams({

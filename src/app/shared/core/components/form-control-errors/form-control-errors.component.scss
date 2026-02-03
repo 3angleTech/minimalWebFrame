@@ -1,7 +1,7 @@
-@import "theme";
+@import 'styles/theme';
 
 :host {
-  color: app-get-color($app-status-colors, "danger");
+  color: app-get-color($app-status-colors, 'danger');
   display: block;
   font-size: 0.75rem;
   line-height: 1.25rem;

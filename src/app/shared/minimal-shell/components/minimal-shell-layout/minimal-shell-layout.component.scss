@@ -23,7 +23,7 @@ app-minimal-shell-layout {
 
 .app-page-section-actions {
   display: grid;
-  grid-gap: var(--spacing-sm);
+  gap: var(--spacing-sm);
 
   > :first-child {
     margin-top: 0;

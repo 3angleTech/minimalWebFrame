@@ -1,17 +1,19 @@
 /**
  * Provides a helper component that can be used to display form control errors.
  */
+import { AsyncPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   DoCheck,
   EventEmitter,
-  Host,
   HostBinding,
+  inject,
   Input,
   OnInit,
 } from '@angular/core';
 import { FormGroupDirective, UntypedFormControl } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -21,6 +23,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./form-control-errors.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  imports: [TranslateModule, AsyncPipe],
 })
 export class FormControlErrorsComponent implements DoCheck, OnInit {
   @Input()
@@ -50,11 +53,7 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
   protected formControlTouchedChanges: EventEmitter<void> = new EventEmitter<void>();
   protected formControlTouchedChanged: boolean = false;
 
-  constructor(
-    @Host()
-    protected formGroupDirective: FormGroupDirective,
-  ) {
-  }
+  protected readonly formGroupDirective = inject(FormGroupDirective, { host: true });
 
   public ngOnInit(): void {
     this.formControl = this.formGroupDirective.form.get(this.formControlPath) as UntypedFormControl;

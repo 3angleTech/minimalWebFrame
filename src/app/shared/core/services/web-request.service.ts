@@ -1,16 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { IWebRequestService, RequestConfig, RequestContentType } from './web-request.interface';
 import { UriService } from './uri.service';
+import { IWebRequestService, RequestConfig, RequestContentType } from './web-request.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class WebRequestService implements IWebRequestService {
-  constructor(
-    private readonly uriService: UriService,
-    private readonly http: HttpClient,
-  ) { }
+  private readonly uriService = inject(UriService);
+  private readonly http = inject(HttpClient);
 
   public get<T>(config: RequestConfig): Observable<T> {
     return this.http.get<T>(this.getUrl(config), {
@@ -47,7 +47,7 @@ export class WebRequestService implements IWebRequestService {
   }
 
   private getHeaders(config: RequestConfig): HttpHeaders {
-    const contentType = (config.contentType) ? config.contentType : RequestContentType.ApplicationJson;
+    const contentType = config.contentType ? config.contentType : RequestContentType.ApplicationJson;
 
     let headers = new HttpHeaders();
     headers = headers.append('Content-Type', contentType);

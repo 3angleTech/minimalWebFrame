@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule } from '@ngx-translate/core';
 
 export enum FormAlertType {
   Success,
@@ -17,6 +19,7 @@ export interface FormAlert {
   styleUrls: ['./form-alerts.component.scss'],
   templateUrl: './form-alerts.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FontAwesomeModule, TranslateModule],
 })
 export class FormAlertsComponent {
   @Input()

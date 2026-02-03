@@ -1,14 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
-import {
-  AccountForgotPasswordPayload,
-  AccountService,
-  FormAlert,
-  getFormAlertsFromHttpErrorResponse,
-  NavigationService,
-  PageUrl,
-} from '~shared/core';
+import { AccountForgotPasswordPayload, AccountService, FormAlert, FormAlertsComponent, FormControlErrorsComponent, getFormAlertsFromHttpErrorResponse, NavigationService, PageUrl } from '~shared/core';
 
 interface ForgotPasswordForm {
   email: FormControl<string>;
@@ -19,17 +13,16 @@ interface ForgotPasswordForm {
   templateUrl: './password-forgot-page.component.html',
   styleUrls: ['./password-forgot-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ReactiveFormsModule, TranslateModule, FormControlErrorsComponent, FormAlertsComponent],
 })
 export class PasswordForgotPageComponent implements OnInit {
   public forgotPasswordForm!: FormGroup<ForgotPasswordForm>;
   public forgotPasswordFormAlerts!: FormAlert[];
   public forgotPasswordFormSubmitted: boolean = false;
 
-  constructor(
-    private readonly formBuilder: NonNullableFormBuilder,
-    private readonly navigationService: NavigationService,
-    private readonly accountService: AccountService,
-  ) {}
+  private readonly formBuilder = inject(NonNullableFormBuilder);
+  private readonly navigationService = inject(NavigationService);
+  private readonly accountService = inject(AccountService);
 
   public ngOnInit(): void {
     this.forgotPasswordForm = this.formBuilder.group({

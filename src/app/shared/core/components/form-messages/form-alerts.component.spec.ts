@@ -8,7 +8,7 @@ describe('FormGroupErrorsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [FormAlertsComponent],
+      imports: [FormAlertsComponent],
     }).compileComponents();
   }));
 

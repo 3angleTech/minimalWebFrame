@@ -14,6 +14,12 @@ export interface IEnvironmentVariables {
   debugEnabled: boolean;
 }
 
+declare global {
+  interface Window {
+    environment: IEnvironmentVariables;
+  }
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -24,8 +30,11 @@ export class EnvironmentService implements IEnvironmentVariables {
   public debugEnabled: boolean;
 
   constructor() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const environment = (window as any).environment as IEnvironmentVariables;
+    const environment = window.environment;
+    if (!environment) {
+      throw new Error('Environment configuration is missing from window object.');
+    }
+
     this.type = environment.type;
     this.apiBaseUrl = environment.apiBaseUrl;
     this.applicationVersion = environment.applicationVersion;

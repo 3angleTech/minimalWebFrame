@@ -1,17 +1,17 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpStatusCode } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { catchError, finalize, Observable, switchMap, throwError } from 'rxjs';
 
 import { ServerApi } from '../enums/server-api.enum';
 import { AuthService } from './auth.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthInterceptor implements HttpInterceptor {
-  private isTokenRefreshing = false;
+  private readonly authService = inject(AuthService);
 
-  constructor(
-    private readonly authService: AuthService,
-  ) { }
+  private isTokenRefreshing = false;
 
   public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const updatedRequest: HttpRequest<unknown> = request.clone({
@@ -25,23 +25,25 @@ export class AuthInterceptor implements HttpInterceptor {
           return this.tryToRefreshToken(updatedRequest, next);
         }
 
-        return throwError(() => error);
+        return throwError(() => error as Error);
       }),
     );
   }
 
   private isRequestUnauthorized(request: HttpRequest<unknown>, error: unknown): boolean {
-    if (error instanceof HttpErrorResponse) {
-      const isUnauthorized: boolean = error.status === HttpStatusCode.Unauthorized;
-      if (isUnauthorized && request.url.endsWith(ServerApi.AuthToken)) {
-        const authRequestBody: string = `${request.serializeBody()}`;
-        if (authRequestBody.includes('grant_type=password') || authRequestBody.includes('grant_type=refresh_token')) {
-          return false;
-        }
+    if (!(error instanceof HttpErrorResponse)) return false;
+
+    const isUnauthorized = (error.status as HttpStatusCode) === HttpStatusCode.Unauthorized;
+
+    if (isUnauthorized && request.url.endsWith(ServerApi.AuthToken)) {
+      const authRequestBody = (request.serializeBody() as any) as string;
+
+      if (authRequestBody?.includes('grant_type=password') || authRequestBody?.includes('grant_type=refresh_token')) {
+        return false;
       }
-      return isUnauthorized;
     }
-    return false;
+
+    return isUnauthorized;
   }
 
   private tryToRefreshToken(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -54,7 +56,7 @@ export class AuthInterceptor implements HttpInterceptor {
         }),
         catchError((error) => {
           this.authService.logout().subscribe(() => {});
-          return throwError(() => error);
+          return throwError(() => error as Error);
         }),
         finalize(() => {
           this.isTokenRefreshing = false;

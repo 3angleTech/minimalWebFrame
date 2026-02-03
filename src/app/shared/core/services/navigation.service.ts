@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { NavigationExtras, Router, UrlTree } from '@angular/router';
 
 /**
@@ -14,11 +14,11 @@ export interface INavigationService {
   navigateToUrl(url: string | UrlTree, extras?: NavigationExtras): void;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class NavigationService implements NavigationService {
-  constructor(
-    private readonly router: Router,
-  ) {}
+  private readonly router = inject(Router);
 
   public navigateToUrl(url: string | UrlTree, extras?: NavigationExtras): void {
     this.router.navigateByUrl(url, extras);

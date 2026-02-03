@@ -1,4 +1,4 @@
-@import "theme";
+@import 'styles/theme';
 
 :host {
   font-size: 0.75rem;
@@ -33,20 +33,20 @@
   }
 
   .app-form-alerts__alert--success {
-    background-color: app-get-contrast($app-status-colors, "success");
-    border: 1px solid app-get-color($app-status-colors, "success");
-    color: app-get-color($app-status-colors, "success");
+    background-color: app-get-contrast($app-status-colors, 'success');
+    border: 1px solid app-get-color($app-status-colors, 'success');
+    color: app-get-color($app-status-colors, 'success');
   }
 
   .app-form-alerts__alert--warning {
-    background-color: app-get-contrast($app-status-colors, "warning");
-    border: 1px solid app-get-color($app-status-colors, "warning");
-    color: app-get-color($app-status-colors, "warning");
+    background-color: app-get-contrast($app-status-colors, 'warning');
+    border: 1px solid app-get-color($app-status-colors, 'warning');
+    color: app-get-color($app-status-colors, 'warning');
   }
 
   .app-form-alerts__alert--error {
-    background-color: app-get-contrast($app-status-colors, "danger");
-    border: 1px solid app-get-color($app-status-colors, "danger");
-    color: app-get-color($app-status-colors, "danger");
+    background-color: app-get-contrast($app-status-colors, 'danger');
+    border: 1px solid app-get-color($app-status-colors, 'danger');
+    color: app-get-color($app-status-colors, 'danger');
   }
 }

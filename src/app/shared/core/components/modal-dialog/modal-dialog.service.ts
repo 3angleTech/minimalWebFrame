@@ -1,28 +1,35 @@
-import { Injectable, ApplicationRef, Injector, ComponentRef, Type, ViewContainerRef } from '@angular/core';
+import { ComponentRef, Injectable, Injector, Type, ViewContainerRef, inject } from '@angular/core';
+
+export interface IModalDialog<T = any> {
+  configuration: T;
+}
 
 /*
 * DialogService is a service that allows you to dynamically open and close dialogs.
 */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ModalDialogService {
-  constructor(
-    private readonly appRef: ApplicationRef,
-    private readonly injector: Injector,
-  ) {
-  }
+  private readonly injector = inject(Injector);
 
-  open(viewContainerRef: ViewContainerRef, component: Type<any>, componentProps?: any): ComponentRef<any> {
+  public open<T extends object>(
+    viewContainerRef: ViewContainerRef,
+    component: Type<T>,
+    componentProps?: unknown,
+  ): ComponentRef<T> {
     const dialogComponentRef = viewContainerRef.createComponent(component, {
       injector: this.injector,
     });
 
-    dialogComponentRef.instance['configuration'] = componentProps;
+    const instance = dialogComponentRef.instance as unknown as IModalDialog;
+
+    if (componentProps) {
+      instance.configuration = componentProps;
+    }
 
     return dialogComponentRef;
   }
 
-  close(dialogComponentRef: ComponentRef<any>) {
-    this.appRef.detachView(dialogComponentRef.hostView);
+  public close(dialogComponentRef: ComponentRef<unknown>): void {
     dialogComponentRef.destroy();
   }
 }

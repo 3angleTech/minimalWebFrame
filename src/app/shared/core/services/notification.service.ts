@@ -1,25 +1,22 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TranslateService } from './translate.service';
 
 export interface INotificationService {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  showNotification(key: string | string[], params?: Object | undefined): void;
+  showNotification(key: string | string[], params?: Record<string, unknown>): void;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class NotificationService implements INotificationService {
-
-  constructor(
-    private readonly translateService: TranslateService,
-  ) { }
+  private readonly translateService = inject(TranslateService);
 
   /**
    * TODO: Properly implement the notification service.
    */
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  public showNotification(key: string | string[], params?: Object | undefined): void {
+  public showNotification(key: string | string[], params?: Record<string, unknown>): void {
     const translatedMessage = this.translateService.translate(key, params);
 
-    alert(translatedMessage);
+    window.alert(translatedMessage);
   }
 }
