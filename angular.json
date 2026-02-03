@@ -42,7 +42,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles"
+                "src"
               ]
             }
           },
@@ -99,7 +99,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles"
+                "src"
               ]
             }
           }

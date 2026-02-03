@@ -1,8 +1,8 @@
 import { FlatCompat } from '@eslint/eslintrc';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import tsParser from '@typescript-eslint/parser';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,7 +22,7 @@ export default [
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: 'tsconfig.app.json',
+        project: ['tsconfig.app.json', 'tsconfig.spec.json'],
         tsconfigRootDir: __dirname,
         sourceType: 'module',
       },

@@ -47,12 +47,16 @@
   "devDependencies": {
     "@3angletech/eslint-config": "19.0.0",
     "@angular-devkit/build-angular": "21.1.2",
+    "@angular-eslint/eslint-plugin": "^21.2.0",
+    "@angular-eslint/eslint-plugin-template": "^21.2.0",
+    "@angular-eslint/template-parser": "^21.2.0",
     "@angular/cli": "21.1.2",
     "@angular/compiler-cli": "21.1.2",
     "@stylistic/stylelint-plugin": "^5.0.1",
     "@types/jasmine": "6.0.0",
     "@types/lodash": "4.17.23",
     "eslint": "9.39.2",
+    "eslint-config-google": "^0.14.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "jasmine-core": "6.0.1",
     "karma": "6.4.4",
@@ -63,6 +67,7 @@
     "stylelint": "17.1.1",
     "stylelint-config-sass-guidelines": "13.0.0",
     "stylelint-config-standard": "40.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
     "typescript": "5.9.3"
   },
   "engines": {
