@@ -20,9 +20,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
-    "lint": "npm run lint:code; npm run lint:style",
-    "lint:code": "eslint -c .eslintrc.js \"src/**/*.ts\"",
-    "lint:style": "stylelint 'src/**/*.*css'"
+    "lint": "npm run lint:code && npm run lint:style",
+    "lint:code": "eslint \"src/**/*.ts\"",
+    "lint:style": "stylelint \"src/**/*.*css\""
   },
   "dependencies": {
     "@angular/animations": "21.1.2",

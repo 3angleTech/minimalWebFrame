@@ -20,7 +20,7 @@ RUN npm run build --development
 FROM nginx:alpine
 
 # Copy the build output from the previous stage
-COPY --from=build /app/dist/minimal-web-frame /usr/share/nginx/html
+COPY --from=build /app/dist/minimal-web-frame/browser /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Start the server using the production build
