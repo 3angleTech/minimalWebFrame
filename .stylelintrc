@@ -2,7 +2,12 @@
   "extends": [
     "@3angletech/eslint-config/style"
   ],
+  "plugins": [
+    "@stylistic/stylelint-plugin"
+  ],
   "rules": {
+    "@stylistic/indentation": 2,
+    "@stylistic/string-quotes": "single",
     "selector-pseudo-element-no-unknown": [
       true, {
         "ignorePseudoElements": ["ng-deep"]
