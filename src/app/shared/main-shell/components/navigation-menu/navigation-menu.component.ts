@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { ContextService, User } from '~shared/core';
 import { navigationMenuDefinition } from './navigation-menu-config';
 import { NavigationMenuNode, NavigationMenuStructure } from './navigation-menu-node-structure';
@@ -22,6 +23,8 @@ export class NavigationMenuComponent implements OnInit {
 
   private readonly contextService = inject(ContextService);
   private readonly router = inject(Router);
+
+  faQuestion = faQuestion;
 
   constructor(
   ) {

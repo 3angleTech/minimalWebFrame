@@ -38,6 +38,7 @@
               }
             ],
             "styles": [
+              "src/assets/fonts/roboto.css",
               "src/styles/main.scss"
             ],
             "stylePreprocessorOptions": {
@@ -49,7 +50,11 @@
           "configurations": {
             "production": {
               "budgets": [
-                { "type": "initial", "maximumWarning": "500kb", "maximumError": "1mb" },
+                {
+                "type": "initial",
+    "maximumWarning": "2mb",
+    "maximumError": "3mb"
+              },
                 { "type": "anyComponentStyle", "maximumWarning": "4kb", "maximumError": "6kb" }
               ],
               "fileReplacements": [

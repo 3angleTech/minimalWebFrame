@@ -29,7 +29,7 @@
     </a>
 
     <button [disabled]="loginForm.disabled || loginForm.invalid" class="app-button--with-icon" name="submit" type="submit">
-      <fa-icon [icon]="['fas', 'lock-open']"></fa-icon>
+      <fa-icon [icon]="faLockOpen"></fa-icon>
       <span class="text">{{ 'ACCOUNT_FEATURE.LOGIN_PAGE.SUBMIT' | translate }}</span>
     </button>
   </div>
@@ -38,7 +38,7 @@
 <aside class="app-page-section">
   <div class="app-page-section-actions">
     <a class="app-button--with-icon" routerLink="/account/signup">
-      <fa-icon [icon]="['fas', 'user']"></fa-icon>
+      <fa-icon [icon]="faUser"></fa-icon>
       <span class="text">
         {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.CREATE_ACCOUNT' | translate }}
       </span>

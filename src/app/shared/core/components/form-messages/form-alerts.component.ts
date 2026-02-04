@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCheck, faExclamationTriangle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { TranslateModule } from '@ngx-translate/core';
 
 export enum FormAlertType {
@@ -30,6 +31,10 @@ export class FormAlertsComponent {
 
   @HostBinding('attr.role')
   public readonly ariaRole: string = 'alert';
+
+  faCheck = faCheck;
+  faExclamationTriangle = faExclamationTriangle;
+  faTimesCircle = faTimesCircle;
 
   public get alertType(): typeof FormAlertType {
     return FormAlertType;

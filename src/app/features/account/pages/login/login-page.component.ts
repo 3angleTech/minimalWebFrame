@@ -4,6 +4,7 @@ import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Va
 import { RouterModule } from '@angular/router';
 
 import { FaIconComponent, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faLockOpen, faUser } from '@fortawesome/free-solid-svg-icons';
 import { TranslateModule } from '@ngx-translate/core';
 import { AuthService, FormAlert, FormAlertsComponent, FormControlErrorsComponent, getFormAlertsFromHttpErrorResponse, IAccountCredentials, NavigationService, PageUrl } from '~shared/core';
 
@@ -34,6 +35,9 @@ export class LoginPageComponent implements OnInit {
   private readonly formBuilder = inject(NonNullableFormBuilder);
   private readonly authService = inject(AuthService);
   private readonly navigationService = inject(NavigationService);
+
+  faLockOpen = faLockOpen;
+  faUser = faUser;
 
   public ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

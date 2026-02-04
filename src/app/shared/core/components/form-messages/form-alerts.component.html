@@ -8,9 +8,9 @@
         [title]="alert.message | translate : alert.messageParams">
         
         @switch (alert.type) {
-          @case (alertType.Success) { <fa-icon [icon]="['fas', 'check']" /> }
-          @case (alertType.Warning) { <fa-icon [icon]="['fas', 'exclamation-triangle']" /> }
-          @case (alertType.Error) { <fa-icon [icon]="['fas', 'times-circle']" /> }
+          @case (alertType.Success) { <fa-icon [icon]="faCheck" /> }
+          @case (alertType.Warning) { <fa-icon [icon]="faExclamationTriangle" /> }
+          @case (alertType.Error) { <fa-icon [icon]="faTimesCircle" /> }
         }
 
         <div>{{ alert.message | translate : alert.messageParams }}</div>
