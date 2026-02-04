@@ -3,24 +3,23 @@
     <img src="assets/logo.svg" alt="logo">
   </div>
 
-  <!-- Section -->
-   @for (section of sections; track section.label) {
+  @for (section of sections; track section.label) {
     <div class="navigation-menu__section"
-        [ngClass]="{'navigation-menu__section--active': isActive(section)}"
-    >
+         [routerLinkActive]="'navigation-menu__section--active'"
+         #rla="routerLinkActive">
+      
       <div class="navigation-menu-item"
-        [ngClass]="{'navigation-menu-item--active': isActive(section)}">
-        <fa-icon [icon]="['fas' , section.icon || 'question']" aria-hidden="true"></fa-icon>
+           [routerLinkActive]="'navigation-menu-item--active'">
+        
+        <fa-icon [icon]="faQuestion" aria-hidden="true" />
         <a [routerLink]="section.route">{{ section.label }}</a>
       </div>
 
-      <!-- Subsection -->
-      @if (section.hasChildren && isActive(section)) {
+      @if (section.hasChildren && rla.isActive) {
         <div class="navigation-menu__sub-section">
           @for (subSection of section.children; track subSection.label) {
             <div class="navigation-menu-item"
-              [ngClass]="{'navigation-menu-item--active': isActive(subSection)}"
-            >
+                 [routerLinkActive]="'navigation-menu-item--active'">
               <a [routerLink]="subSection.route">{{ subSection.label }}</a>
             </div>
           }

@@ -1,25 +1,32 @@
 /**
  * Provides the main navigation menu.
  */
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { ContextService, User } from '~shared/core';
-import { NavigationMenuNode, NavigationMenuStructure } from './navigation-menu-node-structure';
 import { navigationMenuDefinition } from './navigation-menu-config';
-import { Router } from '@angular/router';
+import { NavigationMenuNode, NavigationMenuStructure } from './navigation-menu-node-structure';
 
 @Component({
   selector: 'app-navigation-menu',
   templateUrl: './navigation-menu.component.html',
   styleUrls: ['./navigation-menu.component.scss'],
+  imports: [CommonModule, FontAwesomeModule, RouterModule],
 })
 export class NavigationMenuComponent implements OnInit {
   public currentUser!: User | undefined;
   public sections: NavigationMenuNode[];
   private readonly navigationStructure: NavigationMenuStructure;
 
+  private readonly contextService = inject(ContextService);
+  private readonly router = inject(Router);
+
+  faQuestion = faQuestion;
+
   constructor(
-    private readonly contextService: ContextService,
-    private readonly router: Router,
   ) {
     this.navigationStructure = new NavigationMenuStructure(navigationMenuDefinition);
     this.sections = this.navigationStructure.root.children ?? [];
@@ -31,7 +38,6 @@ export class NavigationMenuComponent implements OnInit {
 
   public isActive(node: NavigationMenuNode): boolean {
     const nodeUrl = node.baseRoute;
-    // eslint-disable-next-line sonarjs/prefer-immediate-return
     const matches = this.router.url.startsWith(nodeUrl);
 
     return matches;

@@ -1,21 +1,23 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ProgressBarComponent } from '~shared/core';
 
 @Component({
   selector: 'app-minimal-shell-layout',
   styleUrls: ['./minimal-shell-layout.component.scss'],
   templateUrl: './minimal-shell-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // eslint-disable-next-line @angular-eslint/use-component-view-encapsulation
   encapsulation: ViewEncapsulation.None,
+  imports: [RouterOutlet, ProgressBarComponent, AsyncPipe],
 })
 export class MinimalShellLayoutComponent implements OnDestroy, OnInit {
   public readonly routeIsLoading: EventEmitter<boolean> = new EventEmitter<boolean>();
   private routerEventsSubscription: Subscription | undefined;
 
-  constructor(
-    private readonly router: Router,
-  ) {}
+  private readonly router = inject(Router);
 
   public ngOnInit(): void {
     this.routerEventsSubscription = this.router.events.subscribe((routerEvent: Event): void => {

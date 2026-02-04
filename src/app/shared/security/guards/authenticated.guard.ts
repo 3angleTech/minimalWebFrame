@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 
 import { ContextService, NavigationService, PageUrl } from '~shared/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthenticatedGuard {
-  constructor(
-    private readonly contextService: ContextService,
-    private readonly navigationService: NavigationService,
-
-  ) {}
+  private readonly contextService = inject(ContextService);
+  private readonly navigationService = inject(NavigationService);
 
   public async canActivate(): Promise<boolean> {
     await this.contextService.refreshUser();

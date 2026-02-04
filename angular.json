@@ -15,12 +15,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/minimal-web-frame",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": [
@@ -31,33 +33,29 @@
               "src/assets",
               {
                 "glob": "environment.js",
-                "input": "./src/environments/",
+                "input": "src/environments/",
                 "output": "/"
               }
             ],
             "styles": [
+              "src/assets/fonts/roboto.css",
               "src/styles/main.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles"
+                "src"
               ]
-            },
-            "scripts": []
+            }
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "2.4mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kb",
-                  "maximumError": "6kb"
-                }
+                "type": "initial",
+    "maximumWarning": "2mb",
+    "maximumError": "3mb"
+              },
+                { "type": "anyComponentStyle", "maximumWarning": "4kb", "maximumError": "6kb" }
               ],
               "fileReplacements": [
                 {
@@ -68,12 +66,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -90,17 +85,13 @@
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "minimal-web-frame:build"
-          }
-        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
@@ -113,16 +104,15 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles"
+                "src"
               ]
-            },
-            "scripts": []
+            }
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "05c3a1ff-25f1-403e-8ad6-3aab32975456"
   }
 }

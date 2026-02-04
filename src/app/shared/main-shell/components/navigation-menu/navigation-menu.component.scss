@@ -1,4 +1,4 @@
-@import "typography";
+@use 'styles/typography' as *;
 
 // Charcoal
 :host {
@@ -7,9 +7,9 @@
   --nav-primary-color-2: #2F2F2F; // darker shade for secondary elements
   --nav-primary-color-2-hover: #292929; // slightly darker than primary color-2
 
-  --nav-separator-color: rgba(255 255 255 0.2); // subtle white separators
+  --nav-separator-color: rgb(255 255 255 0.2); // subtle white separators
   --nav-menu-item-color: #B0BEC5; // soft grey for menu items
-  --nav-menu-item-icon-color: rgba(255 255 255 0.6); // less intense white for icons
+  --nav-menu-item-icon-color: rgb(255 255 255 0.6); // less intense white for icons
   --nav-menu-item-select-color: #FFFFFF; // bright white for selected item
 
   background-color: var(--nav-primary-color);

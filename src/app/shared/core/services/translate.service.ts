@@ -1,27 +1,25 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TranslateService as UpstreamTranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 export interface ITranslateService {
   changeLanguage(lang: string): Observable<void>;
-
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  translate(key: string | string[], params?: Object | undefined): string;
+  translate(key: string | string[], params?: Record<string, unknown>): string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class TranslateService implements ITranslateService {
-  constructor(
-    private readonly translateService: UpstreamTranslateService,
-  ) {
-  }
+  private readonly upstreamTranslateService = inject(UpstreamTranslateService);
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  public translate(key: string | string[], params?: Object | undefined): string {
-    return this.translateService.instant(key, params);
+  public translate(key: string | string[], params?: Record<string, unknown>): string {
+    return this.upstreamTranslateService.instant(key, params) as string;
   }
 
   public changeLanguage(lang: string): Observable<void> {
-    return this.translateService.use(lang);
+    return this.upstreamTranslateService.use(lang).pipe(
+      map(() => undefined),
+    );
   }
 }

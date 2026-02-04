@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, inject, Input, OnChanges } from '@angular/core';
 import { TranslateService } from '~shared/core/services/translate.service';
 
 @Component({
@@ -23,10 +23,7 @@ export class ProgressBarComponent implements OnChanges {
   @HostBinding('attr.role')
   public readonly ariaRole: string = 'progressbar';
 
-  constructor(
-    public readonly translateService: TranslateService,
-  ) {
-  }
+  public readonly translateService = inject(TranslateService);
 
   public ngOnChanges(): void {
     this.ariaValuetext = this.infoText ? this.translateService.translate(this.infoText) : undefined;

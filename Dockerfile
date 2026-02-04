@@ -1,5 +1,5 @@
-# Use Node 20 LTS as base image.
-FROM node:20-alpine AS build
+# Use Node 24 LTS as base image for the build stage.
+FROM node:24-alpine AS build
 
 # Create app directory
 WORKDIR /app
@@ -14,13 +14,15 @@ RUN npm ci
 COPY . .
 
 # Creates a "dist" folder with the production build
-RUN npm run build --development
+RUN npx ng build --configuration development --output-path=dist/output
 
+# ---
+    
 # Stage 2: Serve the application with a minimal web server
 FROM nginx:alpine
 
 # Copy the build output from the previous stage
-COPY --from=build /app/dist/minimal-web-frame /usr/share/nginx/html
+COPY --from=build /app/dist/output/browser /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Start the server using the production build

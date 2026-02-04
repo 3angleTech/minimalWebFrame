@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
+  standalone: true,
+  imports: [RouterOutlet],
+  template: `<router-outlet></router-outlet>`,
 })
 export class AppComponent {
-  constructor(translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+  private readonly translateService = inject(TranslateService);
+
+  constructor() {
+    this.translateService.setFallbackLang('en');
+    this.translateService.use('en');
   }
 }

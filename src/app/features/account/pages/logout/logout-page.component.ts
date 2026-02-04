@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '~shared/core';
 
 @Component({
@@ -6,9 +6,7 @@ import { AuthService } from '~shared/core';
   template: '',
 })
 export class LogoutPageComponent implements OnInit {
-  constructor(
-    private readonly authService: AuthService,
-  ) {}
+  private readonly authService = inject(AuthService);
 
   public ngOnInit(): void {
     this.authService.logout().subscribe(() => {

@@ -1,8 +1,8 @@
-@import "theme";
+@use 'styles/theme' as *;
 
 %app-button {
   background-color: app-get-contrast($app-text-colors, darker);
-  border: 1px solid app-get-color($app-foreground-colors, "dividers");
+  border: 1px solid app-get-color($app-foreground-colors, 'dividers');
   border-radius: var(--border-radius-sm);
   color: app-get-color($app-text-colors, darker);
   cursor: pointer;

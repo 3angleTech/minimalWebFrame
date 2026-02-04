@@ -1,19 +1,21 @@
-import { ChangeDetectionStrategy, Component, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ViewContainerRef } from '@angular/core';
 import { BasePageComponent } from '~shared/core/components/base-page/base-page.component';
-import { ModalDialogComponent, DialogConfiguration } from '~shared/core/components/modal-dialog/modal-dialog.component';
+import { DialogConfiguration, ModalDialogComponent } from '~shared/core/components/modal-dialog/modal-dialog.component';
 import { ModalDialogService } from '~shared/core/components/modal-dialog/modal-dialog.service';
+import { PageTopBarComponent } from '~shared/core/components/page-top-bar/page-top-bar.component';
 
 @Component({
   selector: 'app-dialogs-page',
   templateUrl: './dialogs-page.component.html',
   styleUrls: ['./dialogs-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [PageTopBarComponent],
 })
 export class DialogsPageComponent extends BasePageComponent {
-  constructor(
-    private readonly dialogService: ModalDialogService,
-    private readonly vcr: ViewContainerRef,
-  ) {
+  private readonly dialogService = inject(ModalDialogService);
+  private readonly vcr = inject(ViewContainerRef);
+
+  constructor() {
     super();
   }
 

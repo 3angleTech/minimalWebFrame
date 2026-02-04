@@ -1,5 +1,5 @@
-@import "theme";
-@import "typography";
+@use 'styles/theme' as *;
+@use 'styles/typography' as *;
 
 .app-form--simple {
   border: 1px solid app-get-color($app-foreground-colors, dividers);

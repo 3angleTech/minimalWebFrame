@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 export interface DialogConfiguration {
   type?: 'confirm' | 'warning' | 'danger';
@@ -15,11 +17,12 @@ export interface DialogConfiguration {
   templateUrl: './modal-dialog.component.html',
   styleUrl: './modal-dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, TranslateModule],
 })
-export class ModalDialogComponent {
+export class ModalDialogComponent implements OnInit {
   @Input() configuration!: DialogConfiguration;
-  @Output() acceptEvent = new EventEmitter<void>();
-  @Output() closeEvent = new EventEmitter<void>();
+  @Output() readonly acceptEvent = new EventEmitter<void>();
+  @Output() readonly closeEvent = new EventEmitter<void>();
 
   public theamingClass: 'dialog--confirm' | 'dialog--warning' | 'dialog--danger' = 'dialog--confirm';
 

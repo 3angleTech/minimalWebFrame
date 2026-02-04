@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
-import { AccountResetPasswordPayload, AccountService, FormAlert, FormAlertType, getFormAlertsFromHttpErrorResponse, NavigationService, PageUrl } from '~shared/core';
+import { AccountResetPasswordPayload, AccountService, FormAlert, FormAlertsComponent, FormAlertType, FormControlErrorsComponent, getFormAlertsFromHttpErrorResponse, NavigationService, PageUrl } from '~shared/core';
 
 interface ResetPasswordForm {
   newPassword: FormControl<string>;
@@ -13,20 +14,19 @@ interface ResetPasswordForm {
   selector: 'app-password-reset-page',
   templateUrl: './password-reset-page.component.html',
   styleUrls: ['./password-reset-page.component.scss'],
+  imports: [ReactiveFormsModule, TranslateModule, FormAlertsComponent, FormControlErrorsComponent],
 })
 export class PasswordResetPageComponent implements OnInit {
+  private readonly navigationService = inject(NavigationService);
+  private readonly accountService = inject(AccountService);
+  private readonly formBuilder = inject(NonNullableFormBuilder);
+  private readonly activatedRoute = inject(ActivatedRoute);
+
   public resetPasswordForm!: FormGroup<ResetPasswordForm>;
   public resetPasswordFormAlerts!: FormAlert[];
 
   private resetToken!: string;
 
-  constructor(
-    private readonly navigationService: NavigationService,
-    private readonly accountService: AccountService,
-    private readonly formBuilder: NonNullableFormBuilder,
-    private readonly activatedRoute: ActivatedRoute,
-  ) {
-  }
 
   public ngOnInit(): void {
     this.resetToken = this.activatedRoute.snapshot.queryParamMap.get('token') || '';

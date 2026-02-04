@@ -70,14 +70,16 @@ function getServerErrors(error: unknown): FormAlert[] {
 
 export function getFormAlertsFromHttpErrorResponse(response: unknown): FormAlert[] {
   if (isHttpErrorResponse(response)) {
-    if (response.status === HttpStatusCode.BadRequest) {
+    if ((response.status as HttpStatusCode) === HttpStatusCode.BadRequest) {
       const serverErrors: FormAlert[] = getServerErrors(response.error);
       if (serverErrors.length) {
         return serverErrors;
       }
     }
-    return [errorCodeAlerts[response.status]];
+
+    return [errorCodeAlerts[response.status as HttpStatusCode] || errorCodeAlerts[0]];
   }
+
   const unknownConnectionError: FormAlert = {
     message: 'SERVER_ERROR.GENERIC.UNKNOWN',
     type: FormAlertType.Error,

@@ -1,8 +1,6 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -14,26 +12,24 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "es2020",
+    "module": "ESNext",
     "lib": [
-      "es2020",
-      "dom"
+      "ES2023",
+      "dom",
+      "dom.iterable"
     ],
     "paths": {
-      "~features/*": [
-        "./src/app/features/*"
-      ],
-      "~environment/*": [
-        "./src/environments/*"
-      ],
-      "~shared/*": [
-        "./src/app/shared/*"
-      ]
+      "~features/*": ["./src/app/features/*"],
+      "~environment/*": ["./src/environments/*"],
+      "~shared/*": ["./src/app/shared/*"]
     },
-    "useDefineForClassFields": false
+    "rootDir": ".",
+    "useDefineForClassFields": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

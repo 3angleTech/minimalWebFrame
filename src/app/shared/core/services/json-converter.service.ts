@@ -6,7 +6,9 @@ export interface IJsonConverterService {
   deserialize<T>(json: unknown, classReference: new () => object): T;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class JsonConverterService implements IJsonConverterService {
 
   public deserialize<T>(json: unknown, classReference: new () => object): T {

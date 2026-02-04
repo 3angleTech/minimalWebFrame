@@ -1,4 +1,4 @@
-@import "src/styles/typography";
+@use 'styles/typography' as *;
 
 :host {
   display: flex;

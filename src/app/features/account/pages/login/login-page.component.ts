@@ -1,15 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import {
-  AuthService,
-  FormAlert,
-  getFormAlertsFromHttpErrorResponse,
-  IAccountCredentials,
-  NavigationService,
-  PageUrl,
-} from '~shared/core';
+import { FaIconComponent, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faLockOpen, faUser } from '@fortawesome/free-solid-svg-icons';
+import { TranslateModule } from '@ngx-translate/core';
+import { AuthService, FormAlert, FormAlertsComponent, FormControlErrorsComponent, getFormAlertsFromHttpErrorResponse, IAccountCredentials, NavigationService, PageUrl } from '~shared/core';
 
 interface LoginForm {
   username: FormControl<string>;
@@ -21,16 +18,26 @@ interface LoginForm {
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    FontAwesomeModule,
+    TranslateModule,
+    ReactiveFormsModule,
+    RouterModule,
+    FormAlertsComponent,
+    FormControlErrorsComponent,
+    FaIconComponent,
+  ],
 })
 export class LoginPageComponent implements OnInit {
   public loginForm!: FormGroup<LoginForm>;
   public loginFormAlerts!: FormAlert[];
 
-  constructor(
-    private readonly formBuilder: NonNullableFormBuilder,
-    private readonly authService: AuthService,
-    private readonly navigationService: NavigationService,
-  ) {}
+  private readonly formBuilder = inject(NonNullableFormBuilder);
+  private readonly authService = inject(AuthService);
+  private readonly navigationService = inject(NavigationService);
+
+  faLockOpen = faLockOpen;
+  faUser = faUser;
 
   public ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

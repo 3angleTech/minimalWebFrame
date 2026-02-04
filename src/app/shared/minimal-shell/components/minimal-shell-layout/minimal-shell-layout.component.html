@@ -1,3 +1,7 @@
-<img alt="Logo" class="app-minimal-shell__logo" src="/assets/logo.svg">
-<app-progress-bar *ngIf="routeIsLoading | async"></app-progress-bar>
-<router-outlet></router-outlet>
+<img alt="Logo" class="app-minimal-shell__logo" src="assets/logo.svg">
+
+@if (routeIsLoading | async) {
+  <app-progress-bar />
+}
+
+<router-outlet />

@@ -1,4 +1,4 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { isNil, isString } from 'lodash';
 
 import { ServerApi } from '../enums/server-api.enum';
@@ -29,14 +29,13 @@ export interface IURIService {
   ): string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class UriService implements IURIService {
-  private readonly URL_TEMPLATE_REGEX: RegExp = /{{\s?([^{}\s]*)\s?}}/g;
+  private readonly environmentService = inject(EnvironmentService);
 
-  constructor(
-    @Inject(EnvironmentService)
-    private readonly environmentService: EnvironmentService,
-  ) { }
+  private readonly URL_TEMPLATE_REGEX: RegExp = /{{\s?([^{}\s]*)\s?}}/g;
 
   public buildUrl(
     serverApi: ServerApi,
@@ -86,14 +85,14 @@ export class UriService implements IURIService {
       if (pValue instanceof Array) {
         pValue.forEach((item: UrlParameterValueType, pValueIndex: number) => {
           token += `${pKey}=${encodeURIComponent(item)}`;
-          token += (pValueIndex !== pValue.length - 1) ? '&' : '';
+          token += pValueIndex !== pValue.length - 1 ? '&' : '';
         });
       } else {
         token = `${pKey}=${encodeURIComponent(pValue)}`;
       }
 
       queryString += token;
-      queryString += (pKeyIndex !== paramKeyList.length - 1) ? '&' : '';
+      queryString += pKeyIndex !== paramKeyList.length - 1 ? '&' : '';
     });
 
     return queryString;
