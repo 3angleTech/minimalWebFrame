@@ -1,5 +1,5 @@
-# Use Node 20 LTS as base image.
-FROM node:20-alpine AS build
+# Use Node 24 LTS as base image for the build stage.
+FROM node:24-alpine AS build
 
 # Create app directory
 WORKDIR /app
@@ -16,6 +16,8 @@ COPY . .
 # Creates a "dist" folder with the production build
 RUN npx ng build --configuration development --output-path=dist/output
 
+# ---
+    
 # Stage 2: Serve the application with a minimal web server
 FROM nginx:alpine
 
