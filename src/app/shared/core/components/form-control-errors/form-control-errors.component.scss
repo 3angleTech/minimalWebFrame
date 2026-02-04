@@ -1,4 +1,4 @@
-@import 'styles/theme';
+@use 'styles/theme' as *;
 
 :host {
   color: app-get-color($app-status-colors, 'danger');

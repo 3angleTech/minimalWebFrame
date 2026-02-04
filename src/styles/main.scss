@@ -4,10 +4,10 @@
 // @see http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
 // @see http://getbem.com/introduction/
 
-@import 'global-variables';
-@import 'styles/typography';
-@import 'html-tags';
-@import 'styles/theme';
-@import 'page';
-@import 'form';
-@import 'button';
+@use 'global-variables' as *;
+@use 'styles/typography' as *;
+@use 'html-tags' as *;
+@use 'styles/theme' as *;
+@use 'page' as *;
+@use 'form' as *;
+@use 'button' as *;

@@ -1,4 +1,4 @@
-@import 'styles/theme';
+@use 'styles/theme' as *;
 
 %app-button {
   background-color: app-get-contrast($app-text-colors, darker);
